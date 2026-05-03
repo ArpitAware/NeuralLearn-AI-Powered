@@ -1,0 +1,52 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./index.html', './src/**/*.{js,jsx}'],
+  theme: {
+    extend: {
+      fontFamily: {
+        head: ['Syne', 'sans-serif'],
+        body: ['DM Sans', 'sans-serif'],
+      },
+      colors: {
+        bg: '#04040a',
+        bg2: '#080810',
+        bg3: '#0c0c18',
+        bg4: '#10101f',
+        accent: '#5b6af5',
+        accent2: '#7c3aed',
+        accent3: '#06b6d4',
+        glass: 'rgba(255,255,255,0.04)',
+        glass2: 'rgba(255,255,255,0.07)',
+        border: 'rgba(255,255,255,0.08)',
+        border2: 'rgba(255,255,255,0.14)',
+      },
+      animation: {
+        'fade-up': 'fadeUp 0.6s ease both',
+        'fade-in': 'fadeIn 0.4s ease both',
+        'scale-in': 'scaleIn 0.4s cubic-bezier(0.34,1.56,0.64,1) both',
+        'float': 'float 6s ease-in-out infinite',
+        'blob': 'blob 8s ease-in-out infinite',
+        'glow-pulse': 'glowPulse 2s ease infinite',
+        'spin-slow': 'spin 3s linear infinite',
+        'shimmer': 'shimmer 1.5s infinite',
+        'scan': 'scan 4s linear infinite',
+        'slide-in-left': 'slideInLeft 0.5s ease both',
+        'slide-in-right': 'slideInRight 0.3s ease both',
+      },
+      keyframes: {
+        fadeUp: { from: { opacity: '0', transform: 'translateY(24px)' }, to: { opacity: '1', transform: 'translateY(0)' } },
+        fadeIn: { from: { opacity: '0' }, to: { opacity: '1' } },
+        scaleIn: { from: { opacity: '0', transform: 'scale(0.9)' }, to: { opacity: '1', transform: 'scale(1)' } },
+        float: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-12px)' } },
+        blob: { '0%,100%': { borderRadius: '60% 40% 30% 70%/60% 30% 70% 40%' }, '50%': { borderRadius: '30% 60% 70% 40%/50% 60% 30% 60%' } },
+        glowPulse: { '0%,100%': { boxShadow: '0 0 20px rgba(91,106,245,0.3)' }, '50%': { boxShadow: '0 0 40px rgba(91,106,245,0.5), 0 0 60px rgba(124,58,237,0.2)' } },
+        shimmer: { '0%': { backgroundPosition: '-200% 0' }, '100%': { backgroundPosition: '200% 0' } },
+        scan: { '0%': { transform: 'translateY(-100%)' }, '100%': { transform: 'translateY(400%)' } },
+        slideInLeft: { from: { opacity: '0', transform: 'translateX(-30px)' }, to: { opacity: '1', transform: 'translateX(0)' } },
+        slideInRight: { from: { opacity: '0', transform: 'translateX(30px)' }, to: { opacity: '1', transform: 'translateX(0)' } },
+      },
+      backdropBlur: { xs: '2px' },
+    },
+  },
+  plugins: [],
+};
