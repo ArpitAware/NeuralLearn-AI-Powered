@@ -220,37 +220,55 @@ export default function LandingPage() {
             <Link to="/login" className="btn btn-ghost hidden md:flex">View All <ArrowRight size={16} /></Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {(featured.length ? featured : Array(3).fill(null)).map((course, i) => (
-              course ? (
-                <motion.div
-                  key={course._id}
-                  initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                  whileHover={{ y: -4 }}
-                  className="card card-glow overflow-hidden cursor-pointer group"
-                  onClick={() => window.location.href = '/login'}
-                >
-                  <div className="relative h-44 overflow-hidden">
-                    <img src={course.thumbnail} alt={course.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-transparent" />
-                    <span className="badge badge-blue absolute top-3 left-3 text-[10px]">{course.category}</span>
-                  </div>
-                  <div className="p-5">
-                    <h3 className="font-head font-bold text-sm mb-1 line-clamp-2 group-hover:text-accent transition-colors">{course.title}</h3>
-                    <p className="text-xs text-white/40 mb-3">{course.instructor?.name}</p>
-                    <div className="flex items-center justify-between">
-                      <span className="font-head font-black text-xl text-accent">${course.price}</span>
-                      <span className="text-xs text-amber-400 flex items-center gap-1"><Star size={10} fill="currentColor" /> {course.rating?.toFixed(1)}</span>
+            {featured.length === 0
+              ? Array(3).fill(null).map((_, i) => (
+                  <div key={i} className="card overflow-hidden animate-pulse">
+                    <div className="h-44 bg-white/[0.06]" />
+                    <div className="p-5 space-y-3">
+                      <div className="h-3 bg-white/[0.06] rounded-lg w-3/4" />
+                      <div className="h-2 bg-white/[0.04] rounded-lg w-1/2" />
+                      <div className="h-3 bg-white/[0.06] rounded-lg w-1/3" />
                     </div>
                   </div>
-                </motion.div>
-              ) : (
-                <div key={i} className="card overflow-hidden">
-                  <div className="h-44 skeleton" />
-                  <div className="p-5 space-y-2"><div className="skeleton h-4 w-3/4" /><div className="skeleton h-3 w-1/2" /></div>
-                </div>
-              )
-            ))}
+                ))
+              : featured.map((course, i) => (
+                  <motion.div
+                    key={course._id}
+                    initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }} transition={{ delay: i * 0.1 }}
+                    whileHover={{ y: -4 }}
+                    className="card card-glow overflow-hidden cursor-pointer group"
+                    onClick={() => window.location.href = '/login'}
+                  >
+                    <div className="relative h-44 overflow-hidden">
+                      {course.thumbnail ? (
+                        <img
+                          src={course.thumbnail}
+                          alt={course.title}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          onError={e => { e.target.style.display = 'none'; }}
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-gradient-to-br from-accent/20 to-accent2/10 flex items-center justify-center">
+                          <span className="text-4xl opacity-30">📚</span>
+                        </div>
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-transparent" />
+                      <span className="badge badge-blue absolute top-3 left-3 text-[10px]">{course.category}</span>
+                    </div>
+                    <div className="p-5">
+                      <h3 className="font-head font-bold text-sm mb-1 line-clamp-2 group-hover:text-accent transition-colors">{course.title}</h3>
+                      <p className="text-xs text-white/40 mb-3">{course.instructor?.name}</p>
+                      <div className="flex items-center justify-between">
+                        <span className="font-head font-black text-xl text-accent">${course.price}</span>
+                        <span className="text-xs text-amber-400 flex items-center gap-1">
+                          <Star size={10} fill="currentColor" /> {course.rating?.toFixed(1) || '0.0'}
+                        </span>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))
+            }
           </div>
         </div>
       </section>

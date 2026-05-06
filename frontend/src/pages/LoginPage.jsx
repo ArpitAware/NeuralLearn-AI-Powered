@@ -6,7 +6,7 @@ import toast from 'react-hot-toast';
 import useAuthStore from '../store/authStore';
 
 export default function LoginPage() {
-  const [form, setForm] = useState({ email: 'alex@neurallearn.io', password: 'password123' });
+  const [form, setForm] = useState({ email: '', password: '' });
   const [show, setShow] = useState(false);
   const [errors, setErrors] = useState({});
   const { login, loading } = useAuthStore();
@@ -32,20 +32,6 @@ export default function LoginPage() {
     }
   };
 
-  const demoLogin = async (role) => {
-    const creds = {
-      admin:      { email: 'admin@neurallearn.io',  password: 'password123' },
-      instructor: { email: 'sarah@neurallearn.io',  password: 'password123' },
-      student:    { email: 'alex@neurallearn.io',   password: 'password123' },
-    }[role];
-    try {
-      await login(creds.email, creds.password);
-      toast.success(`Logged in as ${role}`);
-      navigate('/dashboard');
-    } catch {
-      toast.error('Demo login failed — run the seed script first');
-    }
-  };
 
   return (
     <div className="min-h-screen bg-bg flex items-center justify-center p-6 relative overflow-hidden">
@@ -73,20 +59,6 @@ export default function LoginPage() {
             <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-accent to-accent2 flex items-center justify-center font-head font-black text-white text-xl mx-auto mb-4 animate-glow-pulse">N</div>
             <h1 className="font-head font-black text-2xl tracking-tight mb-1">Welcome back</h1>
             <p className="text-white/40 text-sm">Sign in to continue your learning journey</p>
-          </div>
-
-          {/* Demo buttons */}
-          <div className="grid grid-cols-3 gap-2 mb-6">
-            {['student', 'instructor', 'admin'].map(r => (
-              <button key={r} onClick={() => demoLogin(r)} className="btn btn-ghost btn-sm justify-center capitalize text-xs">
-                {r}
-              </button>
-            ))}
-          </div>
-
-          <div className="relative mb-6">
-            <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-white/[0.08]" /></div>
-            <div className="relative flex justify-center"><span className="bg-bg3 px-3 text-xs text-white/30">or sign in with email</span></div>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -139,7 +111,6 @@ export default function LoginPage() {
             <Link to="/register" className="text-accent hover:underline font-medium">Create account</Link>
           </p>
         </motion.div>
-        <p className="text-center text-white/20 text-xs mt-4">Demo: click any role button above to log in instantly</p>
       </div>
     </div>
   );

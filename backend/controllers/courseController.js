@@ -117,10 +117,19 @@ exports.addReview = async (req, res, next) => {
 
 exports.getFeaturedCourses = async (req, res, next) => {
   try {
-    const courses = await Course.find({ isPublished: true, isFeatured: true })
+    // Try featured first, fall back to top-rated published courses
+    let courses = await Course.find({ isPublished: true, isFeatured: true })
       .populate('instructor', 'name avatar')
       .sort({ rating: -1 })
       .limit(6);
+
+    if (courses.length === 0) {
+      courses = await Course.find({ isPublished: true })
+        .populate('instructor', 'name avatar')
+        .sort({ rating: -1, totalStudents: -1 })
+        .limit(6);
+    }
+
     res.json({ success: true, courses });
   } catch (err) {
     next(err);

@@ -87,6 +87,7 @@ const seed = async () => {
         },
       ],
       isPublished: true,
+      isFeatured: true,
     },
     {
       title: 'Full-Stack Web Development',
@@ -120,6 +121,7 @@ const seed = async () => {
         },
       ],
       isPublished: true,
+      isFeatured: true,
     },
     {
       title: 'UI/UX Design Mastery',
@@ -145,6 +147,7 @@ const seed = async () => {
         },
       ],
       isPublished: true,
+      isFeatured: true,
     },
     {
       title: 'Data Science with Python',
