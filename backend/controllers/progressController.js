@@ -1,9 +1,11 @@
 const Progress = require('../models/Progress');
 const Course = require('../models/Course');
 
+// ✅ FIX: 'slug' was missing from populate — caused /courses/undefined/learn URLs
 exports.getProgress = async (req, res, next) => {
   try {
-    const progress = await Progress.find({ user: req.user._id }).populate('course', 'title thumbnail category totalLessons');
+    const progress = await Progress.find({ user: req.user._id })
+      .populate('course', 'title thumbnail category totalLessons slug rating instructor duration');
     res.json({ success: true, progress });
   } catch (err) {
     next(err);
@@ -12,7 +14,10 @@ exports.getProgress = async (req, res, next) => {
 
 exports.getCourseProgress = async (req, res, next) => {
   try {
-    const progress = await Progress.findOne({ user: req.user._id, course: req.params.courseId }).populate('course');
+    const progress = await Progress.findOne({
+      user: req.user._id,
+      course: req.params.courseId,
+    }).populate('course');
     if (!progress) return res.status(404).json({ success: false, message: 'Progress not found' });
     res.json({ success: true, progress });
   } catch (err) {
@@ -31,11 +36,11 @@ exports.markLessonComplete = async (req, res, next) => {
       progress = await Progress.create({ user: req.user._id, course: courseId });
     }
 
-    if (!progress.completedLessons.includes(lessonId)) {
+    if (!progress.completedLessons.map(String).includes(String(lessonId))) {
       progress.completedLessons.push(lessonId);
     }
     progress.currentLesson = lessonId;
-    progress.lastAccessed = new Date();
+    progress.lastAccessed  = new Date();
 
     const totalLessons = course.sections.reduce((s, sec) => s + sec.lessons.length, 0);
     progress.progressPercent = totalLessons > 0
@@ -43,8 +48,8 @@ exports.markLessonComplete = async (req, res, next) => {
       : 0;
 
     if (progress.progressPercent === 100 && !progress.completed) {
-      progress.completed = true;
-      progress.completedAt = new Date();
+      progress.completed        = true;
+      progress.completedAt      = new Date();
       progress.certificateIssued = true;
     }
 
@@ -58,7 +63,7 @@ exports.markLessonComplete = async (req, res, next) => {
 exports.updateTimeSpent = async (req, res, next) => {
   try {
     const { courseId } = req.params;
-    const { seconds } = req.body;
+    const { seconds }  = req.body;
     const progress = await Progress.findOneAndUpdate(
       { user: req.user._id, course: courseId },
       { $inc: { timeSpent: seconds }, lastAccessed: new Date() },
@@ -72,7 +77,7 @@ exports.updateTimeSpent = async (req, res, next) => {
 
 exports.addNote = async (req, res, next) => {
   try {
-    const { courseId } = req.params;
+    const { courseId }       = req.params;
     const { lessonId, content } = req.body;
     const progress = await Progress.findOneAndUpdate(
       { user: req.user._id, course: courseId },

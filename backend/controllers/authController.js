@@ -54,7 +54,7 @@ exports.login = async (req, res, next) => {
 exports.getMe = async (req, res, next) => {
   try {
     const user = await User.findById(req.user._id)
-      .populate('enrolledCourses', 'title thumbnail category')
+      .populate('enrolledCourses', 'title thumbnail category slug')
       .populate('createdCourses', 'title thumbnail totalStudents');
     res.json({ success: true, user });
   } catch (err) {

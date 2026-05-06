@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -15,12 +14,14 @@ const seed = async () => {
   await Course.deleteMany({});
   await Job.deleteMany({});
 
-  const password = await bcrypt.hash('password123', 10);
+  // ✅ FIX: Let each User.create() call go through the pre-save hook normally.
+  // Do NOT pre-hash the password — the hook will hash it once with salt rounds 12.
+  // Pre-hashing + hook = double hash = matchPassword always fails for seeded users.
 
   const admin = await User.create({
     name: 'Admin User',
     email: 'admin@neurallearn.io',
-    password,
+    password: 'password123',          // plain text — hook hashes it
     role: 'admin',
     avatar: 'https://i.pravatar.cc/150?img=1',
     bio: 'Platform administrator',
@@ -29,7 +30,7 @@ const seed = async () => {
   const instructor = await User.create({
     name: 'Dr. Sarah Chen',
     email: 'sarah@neurallearn.io',
-    password,
+    password: 'password123',          // plain text — hook hashes it
     role: 'instructor',
     avatar: 'https://i.pravatar.cc/150?img=5',
     bio: 'ML researcher with 10+ years experience at Google Brain.',
@@ -38,7 +39,7 @@ const seed = async () => {
   const student = await User.create({
     name: 'Alex Morgan',
     email: 'alex@neurallearn.io',
-    password,
+    password: 'password123',          // plain text — hook hashes it
     role: 'student',
     avatar: 'https://i.pravatar.cc/150?img=8',
     bio: 'Aspiring ML engineer, building projects.',
@@ -204,6 +205,32 @@ const seed = async () => {
     { title: 'DevOps Engineer', company: 'Stripe', location: 'New York', salary: '$140k-$180k', type: 'Full-time', tags: ['AWS', 'Kubernetes', 'CI/CD'], description: 'Build infrastructure at global scale.', applyUrl: 'https://stripe.com/jobs' },
     { title: 'UI/UX Designer', company: 'Figma', location: 'Remote', salary: '$130k-$170k', type: 'Contract', tags: ['Figma', 'Design Systems', 'Research'], description: 'Design the tools designers use.', applyUrl: 'https://figma.com/careers' },
   ]);
+
+  // ✅ Enroll student in first 3 courses with real progress records
+  const Progress = require('../models/Progress');
+  await Progress.deleteMany({});
+  const enrollCourses = courses.slice(0, 3);
+  for (const course of enrollCourses) {
+    const pct = Math.floor(Math.random() * 80) + 10; // 10-90%
+    const totalLessons = course.sections.reduce((s, sec) => s + sec.lessons.length, 0);
+    const completedCount = Math.floor((pct / 100) * totalLessons);
+    const completedLessons = course.sections
+      .flatMap(s => s.lessons)
+      .slice(0, completedCount)
+      .map(l => l._id);
+
+    await Progress.create({
+      user: student._id,
+      course: course._id,
+      completedLessons,
+      progressPercent: pct,
+      timeSpent: pct * 120,
+      lastAccessed: new Date(Date.now() - Math.random() * 6 * 86400000),
+    });
+
+    student.enrolledCourses.push(course._id);
+  }
+  await student.save({ validateBeforeSave: false });
 
   console.log('Seed complete!');
   console.log('Admin:      admin@neurallearn.io / password123');

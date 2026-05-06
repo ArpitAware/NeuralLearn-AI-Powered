@@ -46,7 +46,7 @@ export default function CourseDetailPage() {
   if (!course)   return <div className="text-white/40 text-center py-20">Course not found</div>;
 
   const progress   = progressData?.progress;
-  const enrolled   = user?.enrolledCourses?.includes(course._id) || !!progress;
+  const enrolled   = user?.enrolledCourses?.map(String)?.includes(String(course._id)) || !!progress;
   const totalLessons = course.sections?.reduce((s, sec) => s + sec.lessons.length, 0) || 0;
 
   const toggleSection = (i) =>

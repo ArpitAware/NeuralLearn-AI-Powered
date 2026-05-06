@@ -1,7 +1,7 @@
-const User = require('../models/User');
-const Course = require('../models/Course');
+const User     = require('../models/User');
+const Course   = require('../models/Course');
 const Progress = require('../models/Progress');
-const Post = require('../models/Post');
+const Post     = require('../models/Post');
 
 exports.getAdminAnalytics = async (req, res, next) => {
   try {
@@ -18,7 +18,7 @@ exports.getAdminAnalytics = async (req, res, next) => {
     }, 0);
 
     const completedCourses = progressData.filter((p) => p.completed).length;
-    const completionRate = progressData.length > 0
+    const completionRate   = progressData.length > 0
       ? Math.round((completedCourses / progressData.length) * 100)
       : 0;
 
@@ -59,24 +59,41 @@ exports.getAdminAnalytics = async (req, res, next) => {
 
 exports.getStudentAnalytics = async (req, res, next) => {
   try {
-    const progresses = await Progress.find({ user: req.user._id }).populate('course', 'title thumbnail category totalLessons');
+    // ✅ FIX: Include 'slug' so the frontend can build correct course URLs
+    const progresses = await Progress.find({ user: req.user._id })
+      .populate('course', 'title thumbnail category totalLessons slug rating duration');
 
-    const totalHours = progresses.reduce((s, p) => s + Math.round(p.timeSpent / 3600), 0);
-    const completed = progresses.filter((p) => p.completed).length;
-    const avgProgress = progresses.length > 0
+    const totalSeconds = progresses.reduce((s, p) => s + (p.timeSpent || 0), 0);
+    const totalHours   = Math.round(totalSeconds / 3600);
+    const completed    = progresses.filter((p) => p.completed).length;
+    const avgProgress  = progresses.length > 0
       ? Math.round(progresses.reduce((s, p) => s + p.progressPercent, 0) / progresses.length)
       : 0;
 
-    const weeklyActivity = Array(7).fill(0).map(() => Math.floor(Math.random() * 4) + 1);
-
-    const skillMap = {};
+    // Real weekly activity from lastAccessed timestamps
+    const now = new Date();
+    const weeklyActivity = Array(7).fill(0);
     progresses.forEach((p) => {
-      if (p.course) {
-        const cat = p.course.category;
-        if (!skillMap[cat]) skillMap[cat] = 0;
-        skillMap[cat] = Math.max(skillMap[cat], p.progressPercent);
+      if (p.lastAccessed) {
+        const daysAgo = Math.floor((now - new Date(p.lastAccessed)) / 86400000);
+        if (daysAgo >= 0 && daysAgo < 7) {
+          // Index 0 = Mon … 6 = Sun (align to current day of week)
+          const idx = 6 - daysAgo;
+          weeklyActivity[idx] += Math.max(1, Math.round((p.timeSpent || 3600) / 3600));
+        }
       }
     });
+
+    // Build skill map: category → highest progress % the user has in that category
+    const skillMap = {};
+    progresses.forEach((p) => {
+      if (p.course?.category) {
+        const cat = p.course.category;
+        skillMap[cat] = Math.max(skillMap[cat] || 0, p.progressPercent);
+      }
+    });
+
+    const certificates = progresses.filter((p) => p.certificateIssued).length;
 
     res.json({
       success: true,
@@ -85,6 +102,7 @@ exports.getStudentAnalytics = async (req, res, next) => {
         completed,
         enrolled: progresses.length,
         avgProgress,
+        certificates,
         weeklyActivity,
         skillMap,
         progresses,

@@ -115,7 +115,7 @@ export default function ProgressPage() {
                 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.07 }}
                 className="card card-hover p-5 flex gap-4 items-center cursor-pointer"
-                onClick={() => navigate(`/courses/${p.course?.slug}`)}
+                onClick={() => navigate(`/courses/${p.course?.slug || p.course?._id}`)}
               >
                 {p.course?.thumbnail && (
                   <img src={p.course.thumbnail} alt="" className="w-16 h-12 object-cover rounded-xl flex-shrink-0" />

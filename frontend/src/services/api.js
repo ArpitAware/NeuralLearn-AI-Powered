@@ -5,19 +5,36 @@ const api = axios.create({
   headers: { 'Content-Type': 'application/json' },
 });
 
-api.interceptors.request.use((config) => {
-  const token = localStorage.getItem('nl_token');
-  if (token) config.headers.Authorization = `Bearer ${token}`;
-  return config;
-});
+// ✅ FIX: Request interceptor — re-reads token from localStorage on every call.
+// This handles the case where the token was set after the axios instance was created.
+api.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('nl_token');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
 
+// ✅ FIX: Response interceptor — on 401 dispatch a custom event so the auth
+// store (not window.location) handles the logout. Direct window.location.href
+// bypasses React Router and clears all React state abruptly.
 api.interceptors.response.use(
   (res) => res,
   (err) => {
     if (err.response?.status === 401) {
-      localStorage.removeItem('nl_token');
-      localStorage.removeItem('nl_user');
-      window.location.href = '/login';
+      // Only force logout if it's NOT the login endpoint itself
+      const isLoginRoute = err.config?.url?.includes('/auth/login') ||
+                           err.config?.url?.includes('/auth/register');
+      if (!isLoginRoute) {
+        localStorage.removeItem('nl_token');
+        localStorage.removeItem('nl_user');
+        delete api.defaults.headers.common['Authorization'];
+        // Dispatch event — authStore listener or App.jsx can react to this
+        window.dispatchEvent(new CustomEvent('auth:logout'));
+      }
     }
     return Promise.reject(err);
   }
