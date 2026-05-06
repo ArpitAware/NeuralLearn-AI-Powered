@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Play, Star, Zap, Target, Users, Award, Briefcase, Code, BarChart2, ChevronDown } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
 import { coursesAPI } from '../services/api';
@@ -39,15 +39,22 @@ function Blob({ style }) {
 export default function LandingPage() {
   const [scrollY, setScrollY] = useState(0);
   const heroRef = useRef(null);
-  const { scrollYProgress } = useScroll({ target: heroRef });
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const heroY = useTransform(scrollYProgress, [0, 0.5], [0, -60]);
 
+  // ✅ FIX: Use window scroll directly instead of target-based useScroll.
+  // target=heroRef fires scroll progress relative to the element's scroll
+  // container, which on a full-height section means progress hits 1 almost
+  // immediately — fading out the hero content before the user scrolls at all.
+  // Instead we track raw window scrollY and derive opacity/y manually.
   useEffect(() => {
     const handler = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handler, { passive: true });
     return () => window.removeEventListener('scroll', handler);
   }, []);
+
+  // Only start fading after 120px of scroll, fully gone at 500px
+  const heroOpacity = Math.max(0, 1 - Math.max(0, scrollY - 120) / 380);
+  // Subtle upward drift — max 50px
+  const heroY = Math.min(50, Math.max(0, scrollY - 120) * 0.13);
 
   const { data: coursesData } = useQuery({
     queryKey: ['featured-courses'],
@@ -82,8 +89,8 @@ export default function LandingPage() {
       </nav>
 
       {/* HERO */}
-      <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
+      <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ zIndex: 1 }}>
+        <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 0 }}>
           {/* Grid */}
           <div className="absolute inset-0 opacity-[0.04]"
             style={{ backgroundImage: 'linear-gradient(rgba(91,106,245,1) 1px, transparent 1px), linear-gradient(90deg, rgba(91,106,245,1) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
@@ -97,9 +104,9 @@ export default function LandingPage() {
           <div className="absolute inset-0 bg-radial-gradient" style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(91,106,245,0.08) 0%, transparent 70%)' }} />
         </div>
 
-        <motion.div
-          style={{ opacity: heroOpacity, y: heroY }}
-          className="relative text-center px-6 max-w-5xl mx-auto pt-20"
+        <div
+          style={{ opacity: heroOpacity, transform: `translateY(${heroY}px)`, transition: 'none', position: 'relative', zIndex: 10 }}
+          className="text-center px-6 max-w-5xl mx-auto pt-20"
         >
           <motion.div
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
@@ -111,7 +118,7 @@ export default function LandingPage() {
 
           <motion.h1
             initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-            className="font-head font-black text-5xl md:text-7xl leading-[1.05] tracking-[-0.04em] text-white mb-6"
+            className="font-head font-black text-5xl md:text-7xl leading-[1.05] tracking-[-0.04em] text-white mb-6" style={{ color: "#f0f0ff" }}
           >
             Learn Faster.<br />
             <span className="grad-text">Build Smarter.</span><br />
@@ -150,11 +157,12 @@ export default function LandingPage() {
               </div>
             ))}
           </motion.div>
-        </motion.div>
+        </div>
 
         <motion.div
           animate={{ y: [0, 10, 0] }} transition={{ duration: 2, repeat: Infinity }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/20"
+          style={{ opacity: Math.max(0, 1 - scrollY / 200) }}
         >
           <ChevronDown size={24} />
         </motion.div>

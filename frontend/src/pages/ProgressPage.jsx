@@ -33,19 +33,26 @@ export default function ProgressPage() {
 
   const analytics  = analyticsData?.data || {};
   const progresses = progressData?.progress || [];
-  const weeklyActivity = analytics.weeklyActivity || [4, 6, 3, 8, 5, 7, 9];
+  const weeklyActivity = analytics.weeklyActivity || Array(7).fill(0);
   const maxH = Math.max(...weeklyActivity);
   const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
   const skillMap = analytics.skillMap || {};
-  const skills = [
-    { name: 'Python',           pct: skillMap['Data Science'] || 82 },
-    { name: 'Machine Learning', pct: skillMap['AI/ML'] || 74 },
-    { name: 'React',            pct: skillMap['Web Dev'] || 68 },
-    { name: 'Cloud / AWS',      pct: skillMap['Cloud'] || 45 },
-    { name: 'UI/UX Design',     pct: skillMap['Design'] || 38 },
-    { name: 'Data Analysis',    pct: skillMap['Data Science'] ? skillMap['Data Science'] - 10 : 60 },
-  ];
+  // ✅ FIX: Build skills ONLY from real enrolled course categories.
+  // Never use fallback numbers — if skillMap is empty, skills list is empty.
+  const CATEGORY_DISPLAY = {
+    'AI/ML':        'Machine Learning',
+    'Web Dev':      'Web Development',
+    'Design':       'UI/UX Design',
+    'Data Science': 'Data Science',
+    'Cloud':        'Cloud / AWS',
+    'Blockchain':   'Blockchain',
+    'Mobile':       'Mobile Dev',
+    'DevOps':       'DevOps',
+  };
+  const skills = Object.entries(skillMap)
+    .map(([cat, pct]) => ({ name: CATEGORY_DISPLAY[cat] || cat, pct }))
+    .sort((a, b) => b.pct - a.pct);
 
   const stats = [
     { label: 'Total Hours',   value: `${analytics.totalHours ?? 0}h`,    icon: Clock,       color: '#5b6af5' },
@@ -85,17 +92,25 @@ export default function ProgressPage() {
         {/* Skills */}
         <div className="card p-6">
           <SectionHeader title="Skill Progress" />
-          <div className="space-y-4">
-            {skills.map((s, i) => (
-              <motion.div key={s.name} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.08 }}>
-                <div className="flex justify-between text-xs mb-1.5">
-                  <span className="text-white/70">{s.name}</span>
-                  <span className="font-semibold text-accent">{s.pct}%</span>
-                </div>
-                <ProgressBar value={s.pct} height="h-2" />
-              </motion.div>
-            ))}
-          </div>
+          {skills.length === 0 ? (
+            <div className="flex flex-col items-center justify-center py-10 text-center">
+              <div className="text-4xl mb-3">📊</div>
+              <p className="text-white/40 text-sm">No skills tracked yet.</p>
+              <p className="text-white/25 text-xs mt-1">Enroll in courses to see your skill progress here.</p>
+            </div>
+          ) : (
+            <div className="space-y-4">
+              {skills.map((s, i) => (
+                <motion.div key={s.name} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.08 }}>
+                  <div className="flex justify-between text-xs mb-1.5">
+                    <span className="text-white/70">{s.name}</span>
+                    <span className="font-semibold text-accent">{s.pct}%</span>
+                  </div>
+                  <ProgressBar value={s.pct} height="h-2" />
+                </motion.div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 
