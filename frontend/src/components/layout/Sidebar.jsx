@@ -2,7 +2,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Home, BookOpen, BarChart2, Calendar, Brain, Users, FileText,
-  Briefcase, Settings, LogOut, ChevronLeft, Shield, Bell
+  Briefcase, Settings, LogOut, ChevronLeft, Shield, Bell, Globe
 } from 'lucide-react';
 import useAuthStore from '../../store/authStore';
 import useUIStore from '../../store/uiStore';
@@ -16,6 +16,11 @@ const NAV = [
   { path: '/community',    icon: Users,     label: 'Community' },
   { path: '/resume',       icon: FileText,  label: 'Resume Builder' },
   { path: '/jobs',         icon: Briefcase, label: 'Job Portal' },
+];
+
+// Separate top-level link (not a dashboard route)
+const TOP_LINKS = [
+  { path: '/', icon: Globe, label: 'Home Page' },
 ];
 
 export default function Sidebar() {
@@ -69,6 +74,21 @@ export default function Sidebar() {
 
         {/* Nav */}
         <nav className="flex-1 overflow-y-auto px-3 py-4 space-y-0.5">
+          {/* Home / Landing page link */}
+          {TOP_LINKS.map(({ path, icon: Icon, label }) => (
+            <NavLink
+              key={path}
+              to={path}
+              end
+              className={({ isActive }) =>
+                `nav-item ${isActive ? 'active' : ''}`
+              }
+            >
+              <Icon size={16} className="flex-shrink-0 opacity-70" />
+              <span className="flex-1">{label}</span>
+            </NavLink>
+          ))}
+          <div className="my-1 border-t border-white/[0.04]" />
           {NAV.map(({ path, icon: Icon, label }) => (
             <NavLink
               key={path}

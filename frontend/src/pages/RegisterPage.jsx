@@ -50,7 +50,7 @@ export default function RegisterPage() {
 
       <div className="w-full max-w-md relative z-10">
         <Link to="/" className="inline-flex items-center gap-2 text-white/40 hover:text-white text-sm mb-8 transition-colors">
-          ← Back to home
+          ← Back to Home
         </Link>
 
         <motion.div

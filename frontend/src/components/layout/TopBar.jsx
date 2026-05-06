@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation, Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, Bell, Search, X } from 'lucide-react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
@@ -60,6 +60,15 @@ export default function TopBar() {
       </div>
 
       <div className="flex items-center gap-2">
+        {/* Home link */}
+        <Link
+          to="/"
+          className="hidden md:flex items-center gap-1.5 text-xs text-white/30 hover:text-accent transition-colors px-2 py-1.5 rounded-lg hover:bg-accent/[0.06]"
+          title="Back to Home Page"
+        >
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+          Home
+        </Link>
         {/* Notification Bell */}
         <div className="relative">
           <button
