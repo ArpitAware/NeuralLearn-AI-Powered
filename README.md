@@ -27,7 +27,6 @@ npm run dev                 # http://localhost:5173
 ### 2. Demo Credentials
 | Role       | Email                      | Password     |
 |------------|----------------------------|--------------|
-| Admin      | admin@neurallearn.io       | password123  |
 | Instructor | sarah@neurallearn.io       | password123  |
 | Student    | alex@neurallearn.io        | password123  |
 
