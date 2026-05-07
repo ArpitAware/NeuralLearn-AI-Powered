@@ -5,6 +5,7 @@ import DashboardLayout from './components/layout/DashboardLayout';
 import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+import AboutPage from './pages/AboutPage';
 import Dashboard from './pages/Dashboard';
 import CoursesPage from './pages/CoursesPage';
 import CourseDetailPage from './pages/CourseDetailPage';
@@ -16,12 +17,12 @@ import CommunityPage from './pages/CommunityPage';
 import PostDetailPage from './pages/PostDetailPage';
 import ResumePage from './pages/ResumePage';
 import JobsPage from './pages/JobsPage';
+import CartPage from './pages/CartPage';
 import ProfilePage from './pages/ProfilePage';
 import AdminPage from './pages/AdminPage';
 import NotFoundPage from './pages/NotFoundPage';
 import ModalManager from './components/common/ModalManager';
 
-// ✅ Auth guard — redirect to login only for protected routes
 const PrivateRoute = ({ children, roles }) => {
   const { user } = useAuthStore();
   const token = useAuthStore(s => s.token) || localStorage.getItem('nl_token');
@@ -30,9 +31,6 @@ const PrivateRoute = ({ children, roles }) => {
   return children;
 };
 
-// ✅ Auth routes (login/register) — if already logged in show dashboard link
-// but DON'T redirect — user may want to switch accounts
-// Actually we keep redirect for cleanliness but allow back navigation
 const AuthRoute = ({ children }) => {
   const token = useAuthStore(s => s.token) || localStorage.getItem('nl_token');
   if (token) return <Navigate to="/dashboard" replace />;
@@ -50,20 +48,14 @@ export default function App() {
   return (
     <>
       <Routes>
-        {/* ── Public — accessible to everyone including logged-in users ── */}
+        {/* ── Fully public ── */}
         <Route path="/"       element={<LandingPage />} />
+        <Route path="/about"  element={<AboutPage />} />
         <Route path="/login"    element={<AuthRoute><LoginPage /></AuthRoute>} />
         <Route path="/register" element={<AuthRoute><RegisterPage /></AuthRoute>} />
 
-        {/* ── Protected dashboard layout ── */}
-        <Route
-          path="/"
-          element={
-            <PrivateRoute>
-              <DashboardLayout />
-            </PrivateRoute>
-          }
-        >
+        {/* ── Protected ── */}
+        <Route path="/" element={<PrivateRoute><DashboardLayout /></PrivateRoute>}>
           <Route path="dashboard"           element={<Dashboard />} />
           <Route path="courses"             element={<CoursesPage />} />
           <Route path="courses/:slug"       element={<CourseDetailPage />} />
@@ -75,15 +67,9 @@ export default function App() {
           <Route path="community/:id"       element={<PostDetailPage />} />
           <Route path="resume"              element={<ResumePage />} />
           <Route path="jobs"                element={<JobsPage />} />
+          <Route path="cart"                element={<CartPage />} />
           <Route path="profile"             element={<ProfilePage />} />
-          <Route
-            path="admin"
-            element={
-              <PrivateRoute roles={['admin']}>
-                <AdminPage />
-              </PrivateRoute>
-            }
-          />
+          <Route path="admin"               element={<PrivateRoute roles={['admin']}><AdminPage /></PrivateRoute>} />
         </Route>
 
         <Route path="*" element={<NotFoundPage />} />
