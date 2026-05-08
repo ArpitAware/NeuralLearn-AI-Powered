@@ -6,11 +6,12 @@ import {
   ArrowRight, Star, Zap, Users, Award, Briefcase, Code, BarChart2,
   ChevronDown, Brain, FileText, Calendar, MessageSquare, Lock,
   Play, CheckCircle2, Globe, Cpu, TrendingUp, Sparkles, Github,
-  Linkedin, Twitter, MapPin, Mail, ExternalLink
+  Linkedin, Twitter, MapPin, Mail, ExternalLink, ShoppingCart
 } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
 import { coursesAPI, jobsAPI } from '../services/api';
 import useAuthStore from '../store/authStore';
+import useCartStore from '../store/cartStore';
 
 /* ── helpers ───────────────────────────────────────────────── */
 function Blob({ style }) {
@@ -115,6 +116,7 @@ export default function LandingPage() {
   const [scrollY, setScrollY]   = useState(0);
   const [navSolid, setNavSolid] = useState(false);
   const { user, token }         = useAuthStore();
+  const cartCount                   = useCartStore(s => s.cartCount());
   const navigate                = useNavigate();
 
   useEffect(() => {
@@ -283,8 +285,8 @@ export default function LandingPage() {
           {/* Center nav — feature links (half-locked for guests) */}
           <div className="hidden md:flex items-center gap-1">
             <a href="#features"  className="px-3 py-1.5 text-sm text-white/50 hover:text-white transition-colors rounded-lg hover:bg-white/[0.04]">Features</a>
-            <a href="#courses"   className="px-3 py-1.5 text-sm text-white/50 hover:text-white transition-colors rounded-lg hover:bg-white/[0.04]">Courses</a>
-            <a href="#about"     className="px-3 py-1.5 text-sm text-white/50 hover:text-white transition-colors rounded-lg hover:bg-white/[0.04]">About</a>
+            <Link to={token ? "/courses" : "/register"} className="px-3 py-1.5 text-sm text-white/50 hover:text-white transition-colors rounded-lg hover:bg-white/[0.04]">Courses</Link>
+            <Link to="/about" className="px-3 py-1.5 text-sm text-white/50 hover:text-white transition-colors rounded-lg hover:bg-white/[0.04]">About</Link>
 
             {/* Feature nav items — show lock tooltip for guests */}
             {NAV_FEATURES.map(f => (
@@ -309,9 +311,19 @@ export default function LandingPage() {
           {/* Right CTA */}
           <div className="flex items-center gap-3">
             {token ? (
-              <Link to="/dashboard" className="btn btn-primary btn-sm">
-                Dashboard <ArrowRight size={14} />
-              </Link>
+              <>
+                <Link to="/cart" className="relative p-2 rounded-xl hover:bg-white/[0.06] text-white/50 hover:text-white transition-colors">
+                  <ShoppingCart size={18} />
+                  {cartCount > 0 && (
+                    <span className="absolute top-0 right-0 w-4 h-4 bg-accent text-white text-[9px] font-bold rounded-full flex items-center justify-center">
+                      {cartCount}
+                    </span>
+                  )}
+                </Link>
+                <Link to="/dashboard" className="btn btn-primary btn-sm">
+                  Dashboard <ArrowRight size={14} />
+                </Link>
+              </>
             ) : (
               <>
                 <Link to="/login"    className="btn btn-ghost btn-sm hidden sm:flex">Log in</Link>

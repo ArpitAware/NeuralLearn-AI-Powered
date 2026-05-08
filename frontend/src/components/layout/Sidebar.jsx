@@ -1,7 +1,7 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Home, BookOpen, BarChart2, Calendar, Brain, Users, FileText,
+  Home, BarChart2, Calendar, Brain, Users, FileText,
   Briefcase, LogOut, ChevronLeft, Shield, Globe, ShoppingCart, Heart
 } from 'lucide-react';
 import useAuthStore from '../../store/authStore';
@@ -10,7 +10,6 @@ import useCartStore from '../../store/cartStore';
 
 const NAV = [
   { path: '/dashboard',    icon: Home,      label: 'Dashboard'     },
-  { path: '/courses',      icon: BookOpen,  label: 'Courses'       },
   { path: '/progress',     icon: BarChart2, label: 'Progress'      },
   { path: '/calendar',     icon: Calendar,  label: 'Calendar'      },
   { path: '/ai-assistant', icon: Brain,     label: 'AI Assistant'  },

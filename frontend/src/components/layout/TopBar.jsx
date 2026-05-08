@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, Bell, ShoppingCart } from 'lucide-react';
+import { Menu, Bell, ShoppingCart, BookOpen } from 'lucide-react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import useAuthStore from '../../store/authStore';
 import useUIStore from '../../store/uiStore';
@@ -59,6 +59,13 @@ export default function TopBar() {
           </button>
         )}
         <h1 className="font-head font-bold text-lg tracking-tight">{title}</h1>
+        {/* Courses quick link — visible on md+ */}
+        <Link
+          to="/courses"
+          className="hidden md:flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-white/40 hover:text-accent hover:bg-accent/[0.06] rounded-lg transition-colors"
+        >
+          <BookOpen size={13} /> Courses
+        </Link>
       </div>
 
       {/* Right */}

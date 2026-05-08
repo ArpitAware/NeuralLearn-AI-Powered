@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import founder from '../assets/founder.png'
 import {
   ArrowRight, MapPin, Mail, Github, Linkedin, Twitter,
   Code, Cpu, Globe, TrendingUp, Users, Award, Heart,
@@ -111,8 +112,12 @@ export default function AboutPage() {
                 {/*
                   TO ADD YOUR REAL PHOTO:
                   Replace the div below with:
-                  <img src="YOUR_PHOTO_URL" alt="Arpit Aware" className="w-full h-full object-cover object-top" />
+                  <img src={founder} alt="Arpit Aware" className="w-full h-full object-cover object-top" />
+                  
                 */}
+
+                <img src={founder} alt="Arpit Aware" className="w-full h-full object-cover object-top" />
+                
                 <div className="w-full h-full bg-gradient-to-br from-accent/30 via-accent2/20 to-accent3/20 flex flex-col items-center justify-center gap-4">
                   <div className="w-28 h-28 rounded-full bg-gradient-to-br from-accent to-accent2 flex items-center justify-center shadow-[0_0_40px_rgba(91,106,245,0.4)]">
                     <span className="font-head font-black text-5xl text-white">A</span>
