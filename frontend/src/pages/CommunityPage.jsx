@@ -50,7 +50,7 @@ export default function CommunityPage() {
   const initials = user?.name?.split(' ').map(w => w[0]).join('') || 'U';
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 pb-8">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 pb-8">
       {/* MAIN FEED */}
       <div className="lg:col-span-2 space-y-4">
         {/* Create post prompt */}

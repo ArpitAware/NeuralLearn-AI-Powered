@@ -156,3 +156,22 @@
   .delay-500 { animation-delay: 500ms; }
   .delay-600 { animation-delay: 600ms; }
 }
+
+/* Mobile utilities */
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+
+/* Better touch targets on mobile */
+@media (max-width: 640px) {
+  .btn { min-height: 40px; }
+  .btn-sm { min-height: 34px; }
+  .input { font-size: 16px !important; } /* prevent iOS zoom */
+  textarea.input { font-size: 16px !important; }
+  select.input { font-size: 16px !important; }
+}
+
+/* Responsive page padding */
+@media (max-width: 640px) {
+  .card { border-radius: 14px; }
+  .modal { padding: 20px; border-radius: 20px; }
+}

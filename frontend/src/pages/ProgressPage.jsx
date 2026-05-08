@@ -68,7 +68,7 @@ export default function ProgressPage() {
         {stats.map((s, i) => <StatCard key={s.label} {...s} index={i} />)}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {/* Weekly Chart */}
         <div className="card p-6">
           <SectionHeader title="Weekly Activity" subtitle="Hours learned per day" />
@@ -167,7 +167,7 @@ export default function ProgressPage() {
       {/* Achievements */}
       <div>
         <SectionHeader title="Achievements" subtitle={`${ACHIEVEMENTS.filter(a => a.earned).length} / ${ACHIEVEMENTS.length} earned`} />
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {ACHIEVEMENTS.map((a, i) => (
             <motion.div
               key={a.name}

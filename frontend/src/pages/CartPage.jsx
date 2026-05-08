@@ -157,7 +157,7 @@ export default function CartPage() {
         </button>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Cart Items */}
         <div className="lg:col-span-2 space-y-3">
           <AnimatePresence>
@@ -168,7 +168,7 @@ export default function CartPage() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ delay: i * 0.05 }}
-                className="card p-4 flex gap-4 items-start"
+                className="card p-3 sm:p-4 flex gap-3 sm:gap-4 items-start"
               >
                 {course.thumbnail
                   ? <img src={course.thumbnail} alt={course.title}
@@ -191,7 +191,7 @@ export default function CartPage() {
                   </div>
                 </div>
                 <div className="flex flex-col items-end gap-2 flex-shrink-0">
-                  <span className="font-head font-black text-xl text-accent">${course.price}</span>
+                  <span className="font-head font-black text-xl text-accent">₹{course.price}</span>
                   <button
                     onClick={() => { removeFromCart(course._id); toast('Removed from cart', { icon: '🗑️' }); }}
                     className="btn btn-ghost btn-sm btn-icon text-red-400 hover:text-red-300"
@@ -212,7 +212,7 @@ export default function CartPage() {
             <div className="space-y-3 mb-5">
               <div className="flex justify-between text-sm">
                 <span className="text-white/60">Subtotal ({cartItems.length} courses)</span>
-                <span className="font-semibold">${total.toFixed(2)}</span>
+                <span className="font-semibold">₹{total.toFixed(2)}</span>
               </div>
               {discount > 0 && (
                 <div className="flex justify-between text-sm">
@@ -222,7 +222,7 @@ export default function CartPage() {
               )}
               <div className="border-t border-white/[0.08] pt-3 flex justify-between">
                 <span className="font-head font-bold">Total</span>
-                <span className="font-head font-black text-2xl text-accent">${finalAmt.toFixed(2)}</span>
+                <span className="font-head font-black text-2xl text-accent">₹{finalAmt.toFixed(2)}</span>
               </div>
             </div>
 
@@ -258,7 +258,7 @@ export default function CartPage() {
             >
               {paying
                 ? <span className="flex items-center gap-2"><Loader2 size={16} className="animate-spin" /> Processing...</span>
-                : <><CreditCard size={16} /> {finalAmt === 0 ? 'Enroll Free' : `Pay $${finalAmt.toFixed(2)}`}</>
+                : <><CreditCard size={16} /> {finalAmt === 0 ? 'Enroll Free' : `Pay ₹${finalAmt.toFixed(2)}`}</>
               }
             </button>
 

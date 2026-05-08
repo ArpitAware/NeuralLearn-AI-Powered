@@ -89,7 +89,7 @@ export default function Dashboard() {
       </motion.div>
 
       {/* STATS */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         {stats.map((s, i) => <StatCard key={s.label} {...s} index={i} />)}
       </div>
 
@@ -246,7 +246,7 @@ export default function Dashboard() {
             No activity recorded yet — start learning to populate this chart!
           </div>
         ) : (
-          <div className="flex items-end gap-3 h-24 mt-2">
+          <div className="flex items-end gap-1 sm:gap-3 h-20 sm:h-24 mt-2">
             {weeklyActivity.map((h, i) => (
               <div key={i} className="flex-1 flex flex-col items-center gap-2">
                 {h > 0 && <span className="text-[10px] text-white/30">{h}h</span>}

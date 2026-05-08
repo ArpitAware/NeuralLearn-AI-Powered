@@ -221,8 +221,8 @@ export default function CourseDetailPage() {
             ) : (
               <>
                 <div className="text-center mb-5">
-                  <p className="font-head font-black text-4xl text-accent">${course.price}</p>
-                  {course.discountPrice && <p className="text-white/30 text-sm line-through">${course.discountPrice}</p>}
+                  <p className="font-head font-black text-4xl text-accent">₹{course.price}</p>
+                  {course.discountPrice && <p className="text-white/30 text-sm line-through">₹{course.discountPrice}</p>}
                 </div>
                 <button onClick={() => enrollMut.mutate()} disabled={enrollMut.isPending} className="btn btn-primary w-full justify-center py-3 mb-3 animate-glow-pulse">
                   {enrollMut.isPending ? <span className="flex items-center gap-2"><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />Enrolling...</span> : 'Enroll Now →'}

@@ -59,7 +59,7 @@ export default function ResumePage() {
   return (
     <div className="pb-8">
       {/* Toolbar */}
-      <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-3">
         <div>
           <h2 className="font-head font-bold text-2xl">Resume Builder</h2>
           <p className="text-white/40 text-sm mt-0.5">Build a professional resume — export as PDF</p>
@@ -72,7 +72,7 @@ export default function ResumePage() {
       </div>
 
       {/* Tabs */}
-      <div className="flex gap-1 bg-white/[0.03] rounded-2xl p-1 mb-6 overflow-x-auto">
+      <div className="flex gap-1 bg-white/[0.03] rounded-2xl p-1 mb-6 overflow-x-auto scrollbar-hide">
         {TABS.map(t => (
           <button key={t.id} onClick={() => setTab(t.id)} className={`tab flex items-center gap-1.5 flex-shrink-0 ${tab === t.id ? 'active' : ''}`}>
             <t.icon size={13} />{t.label}
@@ -84,7 +84,7 @@ export default function ResumePage() {
       {tab === 'personal' && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="card p-6 space-y-4">
           <h3 className="font-head font-bold text-base mb-2">Personal Information</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <Input label="Full Name" value={user?.name || ''} readOnly placeholder="Your name" />
             <Input label="Email" value={user?.email || ''} readOnly placeholder="Email" />
             <Input label="Job Title" value={resume.title} onChange={e => setResume(p => ({ ...p, title: e.target.value }))} placeholder="e.g. ML Engineer" />
@@ -99,7 +99,7 @@ export default function ResumePage() {
           {resume.experience.map((exp, i) => (
             <div key={i} className="card p-5 relative">
               <button onClick={() => setResume(p => ({ ...p, experience: p.experience.filter((_, j) => j !== i) }))} className="absolute top-4 right-4 text-white/30 hover:text-red-400 transition-colors"><X size={14} /></button>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mb-3">
                 <Input label="Company" value={exp.company} onChange={e => updateExp(i, 'company', e.target.value)} placeholder="Company name" />
                 <Input label="Role" value={exp.role} onChange={e => updateExp(i, 'role', e.target.value)} placeholder="Job title" />
                 <Input label="Period" value={exp.period} onChange={e => updateExp(i, 'period', e.target.value)} placeholder="2021–Present" />

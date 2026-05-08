@@ -11,7 +11,7 @@ export default function DashboardLayout() {
     <div className="flex min-h-screen bg-bg">
       <Sidebar />
       <div
-        className="flex-1 flex flex-col transition-all duration-300"
+        className="flex-1 flex flex-col transition-all duration-300 min-w-0"
         style={{ marginLeft: sidebarOpen ? 240 : 0 }}
       >
         <TopBar />
@@ -23,7 +23,7 @@ export default function DashboardLayout() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
-              className="p-6 max-w-[1280px] mx-auto"
+              className="p-3 sm:p-5 lg:p-6 max-w-[1280px] mx-auto"
             >
               <Outlet />
             </motion.div>

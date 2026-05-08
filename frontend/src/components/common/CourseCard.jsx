@@ -75,9 +75,9 @@ export default function CourseCard({ course, progress, index = 0, onClick }) {
           </div>
         ) : (
           <div className="flex items-center justify-between">
-            <span className="font-head font-extrabold text-lg text-accent">${course.price}</span>
+            <span className="font-head font-extrabold text-lg text-accent">₹{course.price}</span>
             {course.discountPrice && (
-              <span className="text-xs text-white/30 line-through">${course.discountPrice}</span>
+              <span className="text-xs text-white/30 line-through">₹{course.discountPrice}</span>
             )}
           </div>
         )}

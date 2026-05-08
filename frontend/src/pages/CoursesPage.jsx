@@ -130,7 +130,7 @@ function CourseCard({ course, progress, index = 0, onOpen }) {
           </div>
         ) : (
           <div className="flex items-center gap-2">
-            <span className="font-head font-black text-lg text-accent flex-1">${course.price}</span>
+            <span className="font-head font-black text-lg text-accent flex-1">₹{course.price}</span>
             {/* Wishlist */}
             <button
               onClick={handleWish}
@@ -233,7 +233,7 @@ function CourseModal({ course, progress, onClose }) {
 
           {/* Actions */}
           <div className="flex gap-3 items-center">
-            <span className="font-head font-black text-3xl text-accent">${course.price}</span>
+            <span className="font-head font-black text-3xl text-accent">₹{course.price}</span>
             {enrolled ? (
               <button onClick={() => { onClose(); navigate(`/courses/${course.slug}/learn`); }}
                 className="btn btn-primary flex-1 justify-center py-3">
@@ -382,14 +382,14 @@ export default function CoursesPage() {
 
       {/* Course Grid */}
       {isLoading ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {Array(6).fill(null).map((_, i) => <CourseCardSkeleton key={i} />)}
         </div>
       ) : courses.length === 0 ? (
         <EmptyState icon="🔍" title="No courses found" description="Try different keywords or clear the filters."
           action={<button onClick={clearFilters} className="btn btn-primary btn-sm">Clear Filters</button>} />
       ) : view === 'grid' ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {courses.map((course, i) => (
             <CourseCard
               key={course._id}
@@ -426,7 +426,7 @@ export default function CoursesPage() {
                   </div>
                 </div>
                 <div className="flex items-center gap-2 flex-shrink-0" onClick={e => e.stopPropagation()}>
-                  <span className="font-head font-black text-lg text-accent">${course.price}</span>
+                  <span className="font-head font-black text-lg text-accent">₹{course.price}</span>
                   <button onClick={() => { useCartStore.getState().toggleWishlist(course); toast(inWish ? 'Removed' : 'Added to wishlist ❤️'); }}
                     className={`btn btn-icon btn-sm ${inWish ? 'text-red-400' : 'btn-ghost'}`}>
                     <Heart size={14} fill={inWish ? 'currentColor' : 'none'} />

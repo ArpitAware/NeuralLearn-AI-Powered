@@ -360,7 +360,7 @@ export default function LandingPage() {
           <motion.h1
             initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.12 }}
             className="font-head font-black leading-[1.04] tracking-[-0.04em] mb-6 text-white"
-            style={{ fontSize: 'clamp(2.6rem, 7vw, 5.5rem)', color: '#f0f0ff' }}
+            style={{ fontSize: 'clamp(2rem, 6vw, 5.5rem)', color: '#f0f0ff' }}
           >
             Learn Faster.<br />
             <span className="grad-text">Build Smarter.</span><br />
@@ -416,7 +416,7 @@ export default function LandingPage() {
           <StatCounter value="50,000+" label="Active Learners"    delay={0}    />
           <StatCounter value="200+"    label="Expert Courses"     delay={0.1}  />
           <StatCounter value="87%"     label="Job Placement Rate" delay={0.2}  />
-          <StatCounter value="$92K"    label="Avg Salary Earned"  delay={0.3}  />
+          <StatCounter value="₹92K"    label="Avg Salary Earned"  delay={0.3}  />
         </div>
       </section>
 
@@ -440,7 +440,7 @@ export default function LandingPage() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {LOCKED_FEATURES.map((f, i) => (
             token ? (
               /* Logged-in: direct link, no lock */
@@ -498,7 +498,7 @@ export default function LandingPage() {
               Built for serious learners
             </motion.h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
             {FEATURES_LIST.map((f, i) => (
               <motion.div
                 key={f.title}
@@ -572,7 +572,7 @@ export default function LandingPage() {
                     <h3 className="font-head font-bold text-sm mb-1 line-clamp-2 group-hover:text-accent transition-colors">{course.title}</h3>
                     <p className="text-xs text-white/40 mb-3">{course.instructor?.name}</p>
                     <div className="flex items-center justify-between">
-                      <span className="font-head font-black text-xl text-accent">${course.price}</span>
+                      <span className="font-head font-black text-xl text-accent">₹{course.price}</span>
                       <span className="text-xs text-amber-400 flex items-center gap-1">
                         <Star size={10} fill="currentColor" /> {course.rating?.toFixed(1) || '0.0'}
                       </span>
@@ -600,7 +600,7 @@ export default function LandingPage() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {(jobs.length ? jobs : Array(4).fill(null)).map((job, i) =>
               job ? (
                 <motion.div
@@ -663,7 +663,7 @@ export default function LandingPage() {
             Real results from real learners
           </motion.h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {TESTIMONIALS.map((t, i) => (
             <motion.div
               key={t.name}
@@ -826,7 +826,7 @@ export default function LandingPage() {
       {/* ══ FOOTER ══════════════════════════════════════════════ */}
       <footer className="border-t border-white/[0.06] py-12 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
             <div>
               <div className="flex items-center gap-2.5 mb-4">
                 <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent to-accent2 flex items-center justify-center font-head font-black text-white text-sm">N</div>

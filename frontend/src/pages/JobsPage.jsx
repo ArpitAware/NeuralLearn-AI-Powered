@@ -87,7 +87,7 @@ export default function JobsPage() {
 
                     <div className="flex items-center gap-4 mt-2 text-xs text-white/40">
                       <span className="flex items-center gap-1"><MapPin size={11} />{job.location}</span>
-                      {job.salary && <span className="flex items-center gap-1 text-emerald-400"><DollarSign size={11} />{job.salary}</span>}
+                      {job.salary && <span className="flex items-center gap-1 text-emerald-400"><span className="text-[11px]">₹</span>{job.salary}</span>}
                     </div>
 
                     <div className="flex flex-wrap gap-1.5 mt-3">
@@ -146,7 +146,7 @@ export default function JobsPage() {
       )}
 
       {/* Stats */}
-      <div className="grid grid-cols-3 gap-4 mt-8">
+      <div className="grid grid-cols-3 gap-3 mt-6">
         {[['Active Jobs', jobs.length], ['Companies', new Set(jobs.map(j => j.company)).size], ['Applied', jobs.filter(j => j.applicants?.includes(user?._id)).length]].map(([l, v]) => (
           <div key={l} className="card p-4 text-center">
             <p className="font-head font-black text-2xl text-accent">{v}</p>

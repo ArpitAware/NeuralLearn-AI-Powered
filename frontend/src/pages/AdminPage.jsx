@@ -73,7 +73,7 @@ export default function AdminPage() {
   return (
     <div className="pb-8">
       {/* Stats */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-7">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-5">
         {[
           { label: 'Total Revenue',   value: formatCurrency(analytics.totalRevenue || 0),   icon: DollarSign, color: '#10b981' },
           { label: 'Total Students',  value: formatNumber(analytics.totalUsers || 0),        icon: Users,      color: '#5b6af5' },
@@ -138,7 +138,7 @@ export default function AdminPage() {
           {/* Top Courses */}
           <div className="card p-6">
             <SectionHeader title="Top Performing Courses" />
-            <div className="space-y-3">
+            <div className="space-y-2 overflow-x-auto">
               {(analytics.topCourses || []).map((c, i) => {
                 const maxStudents = analytics.topCourses?.[0]?.totalStudents || 1;
                 return (
@@ -159,7 +159,7 @@ export default function AdminPage() {
                         <span className="text-xs text-white/40 flex-shrink-0">{formatNumber(c.totalStudents)}</span>
                       </div>
                     </div>
-                    <span className="text-sm font-bold text-emerald-400 flex-shrink-0">${c.price}</span>
+                    <span className="text-sm font-bold text-emerald-400 flex-shrink-0">₹{c.price}</span>
                   </div>
                 );
               })}
@@ -169,7 +169,7 @@ export default function AdminPage() {
           {/* Recent Users */}
           <div className="card p-6">
             <SectionHeader title="Recent Signups" />
-            <div className="space-y-3">
+            <div className="space-y-2 overflow-x-auto">
               {(analytics.recentUsers || []).map((u) => (
                 <div key={u._id} className="flex items-center gap-3 py-2 border-b border-white/[0.04] last:border-0">
                   {u.avatar ? (
@@ -200,7 +200,7 @@ export default function AdminPage() {
             <button onClick={() => setNewCourse(true)} className="btn btn-primary btn-sm"><Plus size={14} /> New Course</button>
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-2 overflow-x-auto">
             {courses.map((course, i) => (
               <motion.div
                 key={course._id}
@@ -222,7 +222,7 @@ export default function AdminPage() {
                     <span>★ {course.rating?.toFixed(1)}</span>
                   </div>
                 </div>
-                <span className="font-head font-black text-lg text-emerald-400 flex-shrink-0">${course.price}</span>
+                <span className="font-head font-black text-lg text-emerald-400 flex-shrink-0">₹{course.price}</span>
                 <div className="flex gap-2 flex-shrink-0">
                   <button className="btn btn-ghost btn-sm btn-icon" title="View">
                     <Eye size={14} />
@@ -242,7 +242,7 @@ export default function AdminPage() {
 
       {/* ── USERS ── */}
       {tab === 'users' && (
-        <div className="space-y-3">
+        <div className="space-y-2 overflow-x-auto">
           <p className="text-white/40 text-sm">{users.length} registered users</p>
           {users.map((u, i) => (
             <motion.div

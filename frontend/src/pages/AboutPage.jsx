@@ -78,7 +78,7 @@ export default function AboutPage() {
       {/* Stats Band */}
       <section className="py-12 border-y border-white/[0.06]"
         style={{ background: 'linear-gradient(90deg,rgba(91,106,245,0.04),rgba(124,58,237,0.06),rgba(6,182,212,0.04))' }}>
-        <div className="max-w-5xl mx-auto px-6 flex flex-wrap justify-center gap-10 md:gap-20">
+        <div className="max-w-5xl mx-auto px-6 grid grid-cols-3 sm:flex sm:flex-wrap justify-center gap-5 sm:gap-14 md:gap-16">
           {[['50K+','Students'],['200+','Courses'],['87%','Job Rate'],['1,000+','Hiring Partners'],['4.9★','Rating']].map(([v, l]) => (
             <div key={l} className="text-center">
               <div className="font-head font-black text-3xl md:text-4xl grad-text mb-1">{v}</div>
@@ -101,14 +101,14 @@ export default function AboutPage() {
 
         <motion.div
           initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center"
         >
           {/* Photo */}
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
               <div className="absolute -inset-4 rounded-[36px] bg-gradient-to-br from-accent/20 to-accent2/10 blur-xl" />
               <div className="absolute -inset-1 rounded-[32px] border border-accent/20" />
-              <div className="relative w-72 h-80 lg:w-80 lg:h-96 rounded-[28px] overflow-hidden border-2 border-accent/30 shadow-[0_0_60px_rgba(91,106,245,0.25)]">
+              <div className="relative w-60 h-72 sm:w-72 sm:h-80 lg:w-80 lg:h-96 rounded-[28px] overflow-hidden border-2 border-accent/30 shadow-[0_0_60px_rgba(91,106,245,0.25)]">
                 {/*
                   TO ADD YOUR REAL PHOTO:
                   Replace the div below with:
@@ -170,7 +170,7 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-2 sm:gap-4">
               {[['5+','Years Coding'],['15+','Projects Built'],['50K+','Students Helped']].map(([v, l]) => (
                 <div key={l} className="card p-4 text-center" style={{ borderColor: 'rgba(91,106,245,0.15)' }}>
                   <p className="font-head font-black text-2xl text-accent">{v}</p>
@@ -205,7 +205,7 @@ export default function AboutPage() {
             <h2 className="font-head font-black text-4xl tracking-tight" style={{ color: '#f0f0ff' }}>Our Values</h2>
             <p className="text-white/40 mt-3">What drives every decision we make at NeuralLearn</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {VALUES.map((v, i) => (
               <motion.div
                 key={v.title}
@@ -239,10 +239,10 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className={`relative flex items-start mb-10 pl-12 md:pl-0 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+              className={`relative flex items-start mb-10 pl-12 md:pl-0 ₹{i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
             >
               <div className="absolute left-2 md:left-1/2 md:-translate-x-1/2 w-5 h-5 rounded-full bg-accent border-2 border-bg shadow-[0_0_12px_rgba(91,106,245,0.5)] mt-1 flex-shrink-0" />
-              <div className={`card p-5 md:w-[45%] ${i % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}`}>
+              <div className={`card p-5 md:w-[45%] ₹{i % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}`}>
                 <span className="badge badge-blue text-[10px] mb-2">{m.year}</span>
                 <h4 className="font-head font-bold text-sm mb-1">{m.title}</h4>
                 <p className="text-white/40 text-xs leading-relaxed">{m.desc}</p>

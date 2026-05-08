@@ -52,7 +52,7 @@ const seed = async () => {
       instructor: instructor._id,
       category: 'AI/ML',
       level: 'Advanced',
-      price: 89,
+      price: 7499,
       description: 'Master deep learning, neural networks, and production ML systems.',
       thumbnail: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400',
       duration: '42h',
@@ -95,7 +95,7 @@ const seed = async () => {
       instructor: instructor._id,
       category: 'Web Dev',
       level: 'Intermediate',
-      price: 79,
+      price: 6599,
       description: 'Build production-grade web apps with React, Node.js, and PostgreSQL.',
       thumbnail: 'https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=400',
       duration: '68h',
@@ -129,7 +129,7 @@ const seed = async () => {
       instructor: instructor._id,
       category: 'Design',
       level: 'Beginner',
-      price: 69,
+      price: 5799,
       description: 'Design stunning interfaces with Figma. Learn design systems, prototyping.',
       thumbnail: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400',
       duration: '28h',
@@ -155,7 +155,7 @@ const seed = async () => {
       instructor: instructor._id,
       category: 'Data Science',
       level: 'Intermediate',
-      price: 74,
+      price: 6199,
       description: 'From data wrangling to predictive modeling. Master Pandas, NumPy.',
       thumbnail: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400',
       duration: '54h',
@@ -180,7 +180,7 @@ const seed = async () => {
       instructor: instructor._id,
       category: 'Cloud',
       level: 'Advanced',
-      price: 119,
+      price: 9999,
       description: 'Architect scalable cloud systems. Prepare for AWS Solutions Architect cert.',
       thumbnail: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=400',
       duration: '46h',
@@ -202,11 +202,11 @@ const seed = async () => {
   ]);
 
   await Job.insertMany([
-    { title: 'ML Engineer', company: 'Anthropic', location: 'Remote', salary: '$180k-$240k', type: 'Full-time', tags: ['Python', 'TensorFlow', 'LLMs'], description: 'Build cutting-edge AI systems.', applyUrl: 'https://anthropic.com/careers' },
-    { title: 'Senior Frontend Dev', company: 'Vercel', location: 'San Francisco', salary: '$150k-$200k', type: 'Full-time', tags: ['React', 'TypeScript', 'Next.js'], description: 'Shape the future of web development.', applyUrl: 'https://vercel.com/careers' },
-    { title: 'Data Scientist', company: 'OpenAI', location: 'Remote', salary: '$160k-$220k', type: 'Full-time', tags: ['Python', 'Statistics', 'ML'], description: 'Drive insights from large-scale data.', applyUrl: 'https://openai.com/careers' },
-    { title: 'DevOps Engineer', company: 'Stripe', location: 'New York', salary: '$140k-$180k', type: 'Full-time', tags: ['AWS', 'Kubernetes', 'CI/CD'], description: 'Build infrastructure at global scale.', applyUrl: 'https://stripe.com/jobs' },
-    { title: 'UI/UX Designer', company: 'Figma', location: 'Remote', salary: '$130k-$170k', type: 'Contract', tags: ['Figma', 'Design Systems', 'Research'], description: 'Design the tools designers use.', applyUrl: 'https://figma.com/careers' },
+    { title: 'ML Engineer', company: 'Anthropic', location: 'Remote', salary: '₹15L-₹20L', type: 'Full-time', tags: ['Python', 'TensorFlow', 'LLMs'], description: 'Build cutting-edge AI systems.', applyUrl: 'https://anthropic.com/careers' },
+    { title: 'Senior Frontend Dev', company: 'Vercel', location: 'San Francisco', salary: '₹12L-₹17L', type: 'Full-time', tags: ['React', 'TypeScript', 'Next.js'], description: 'Shape the future of web development.', applyUrl: 'https://vercel.com/careers' },
+    { title: 'Data Scientist', company: 'OpenAI', location: 'Remote', salary: '₹13L-₹18L', type: 'Full-time', tags: ['Python', 'Statistics', 'ML'], description: 'Drive insights from large-scale data.', applyUrl: 'https://openai.com/careers' },
+    { title: 'DevOps Engineer', company: 'Stripe', location: 'New York', salary: '₹11L-₹15L', type: 'Full-time', tags: ['AWS', 'Kubernetes', 'CI/CD'], description: 'Build infrastructure at global scale.', applyUrl: 'https://stripe.com/jobs' },
+    { title: 'UI/UX Designer', company: 'Figma', location: 'Remote', salary: '₹10L-₹14L', type: 'Contract', tags: ['Figma', 'Design Systems', 'Research'], description: 'Design the tools designers use.', applyUrl: 'https://figma.com/careers' },
   ]);
 
   // ✅ Enroll student in first 3 courses with real progress records
