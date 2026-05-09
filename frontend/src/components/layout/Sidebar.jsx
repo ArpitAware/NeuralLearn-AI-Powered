@@ -82,15 +82,15 @@ export default function Sidebar() {
             )}
           </NavLink>
 
-          {wishCount > 0 && (
-            <div className="nav-item">
-              <Heart size={16} className="flex-shrink-0 text-red-400" fill="currentColor" />
-              <span className="flex-1 text-red-400/80">Wishlist</span>
+          <NavLink to="/wishlist" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+            <Heart size={16} className={`flex-shrink-0 ${wishCount > 0 ? 'text-red-400' : 'opacity-70'}`} fill={wishCount > 0 ? 'currentColor' : 'none'} />
+            <span className={`flex-1 ${wishCount > 0 ? 'text-red-400/80' : ''}`}>Wishlist</span>
+            {wishCount > 0 && (
               <span className="w-5 h-5 rounded-full bg-red-500/20 text-red-400 text-[10px] font-bold flex items-center justify-center border border-red-500/30">
                 {wishCount}
               </span>
-            </div>
-          )}
+            )}
+          </NavLink>
 
           {user?.role === 'admin' && (
             <>

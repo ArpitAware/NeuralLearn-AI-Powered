@@ -18,6 +18,7 @@ import PostDetailPage from './pages/PostDetailPage';
 import ResumePage from './pages/ResumePage';
 import JobsPage from './pages/JobsPage';
 import CartPage from './pages/CartPage';
+import WishlistPage from './pages/WishlistPage';
 import ProfilePage from './pages/ProfilePage';
 import AdminPage from './pages/AdminPage';
 import NotFoundPage from './pages/NotFoundPage';
@@ -68,6 +69,7 @@ export default function App() {
           <Route path="resume"              element={<ResumePage />} />
           <Route path="jobs"                element={<JobsPage />} />
           <Route path="cart"                element={<CartPage />} />
+          <Route path="wishlist"             element={<WishlistPage />} />
           <Route path="profile"             element={<ProfilePage />} />
           <Route path="admin"               element={<PrivateRoute roles={['admin']}><AdminPage /></PrivateRoute>} />
         </Route>

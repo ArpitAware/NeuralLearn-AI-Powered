@@ -412,11 +412,11 @@ export default function LandingPage() {
       {/* ══ STATS BAND ══════════════════════════════════════════ */}
       <section className="py-16 border-y border-white/[0.06]"
         style={{ background: 'linear-gradient(90deg,rgba(91,106,245,0.04),rgba(124,58,237,0.06),rgba(6,182,212,0.04))' }}>
-        <div className="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
-          <StatCounter value="50,000+" label="Active Learners"    delay={0}    />
-          <StatCounter value="200+"    label="Expert Courses"     delay={0.1}  />
-          <StatCounter value="87%"     label="Job Placement Rate" delay={0.2}  />
-          <StatCounter value="₹92K"    label="Avg Salary Earned"  delay={0.3}  />
+        <div className="max-w-5xl mx-auto px-6 flex flex-wrap justify-center gap-8 md:gap-16">
+          <StatCounter value="50K+"  label="Active Learners"    delay={0}    />
+          <StatCounter value="200+"  label="Expert Courses"     delay={0.1}  />
+          <StatCounter value="87%"   label="Job Placement Rate" delay={0.2}  />
+          <StatCounter value="₹92K"  label="Avg Salary Earned"  delay={0.3}  />
         </div>
       </section>
 

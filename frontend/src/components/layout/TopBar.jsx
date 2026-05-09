@@ -19,6 +19,7 @@ const PAGE_TITLES = {
   '/resume':       'Resume Builder',
   '/jobs':         'Job Portal',
   '/cart':         'Shopping Cart',
+  '/wishlist':      'My Wishlist',
   '/profile':      'Profile',
   '/admin':        'Admin Panel',
 };
