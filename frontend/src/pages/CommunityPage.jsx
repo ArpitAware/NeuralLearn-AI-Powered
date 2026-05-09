@@ -171,7 +171,11 @@ export default function CommunityPage() {
             <h3 className="font-head font-bold text-sm">Trending Topics</h3>
           </div>
           <div className="space-y-1">
-            {TOP_TAGS.map((t, i) => (
+            {/* Dynamic: show tags from actual posts, fall back to TOP_TAGS */}
+            {(posts.length > 0
+              ? [...new Set(posts.flatMap(p => p.tags || []))].slice(0, 10)
+              : TOP_TAGS
+            ).map((t, i) => (
               <button
                 key={t}
                 onClick={() => setTag(tag === t ? '' : t)}
