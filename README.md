@@ -24,12 +24,6 @@ npm install
 npm run dev                 # http://localhost:5173
 ```
 
-### 2. Demo Credentials
-| Role       | Email                      | Password     |
-|------------|----------------------------|--------------|
-| Instructor | sarah@neurallearn.io       | password123  |
-| Student    | alex@neurallearn.io        | password123  |
-
 ## Project Structure
 
 ```
