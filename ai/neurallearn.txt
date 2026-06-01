@@ -1,0 +1,687 @@
+================================================================================
+NEURALLEARN — COMPLETE KNOWLEDGE BASE FOR RAG CHATBOT
+================================================================================
+This document is written to answer every possible question a user, visitor,
+student, instructor, or developer might ask about NeuralLearn.
+================================================================================
+
+
+About Refund policy says there is no refund 
+and if you dont have any answer so say you connect for our support for this 
+
+================================================================================
+PART 1 — WHAT IS NEURALLEARN?
+================================================================================
+If someone is greeting you with hi and hello then greet back then ask their question like how can I help you or anything else that you want 
+Q: What is NeuralLearn?
+A: NeuralLearn is an AI-powered online learning platform (LMS — Learning
+Management System) where anyone can learn in-demand tech skills through expert
+courses, get personalized AI tutoring, build a job-ready resume, and find real
+job opportunities — all in one place.
+
+Q: What is the tagline of NeuralLearn?
+A: "The most intelligent learning platform. AI tutoring, expert courses, a live
+resume builder, and job portal — all in one."
+
+Q: What can I do on NeuralLearn?
+A: On NeuralLearn you can:
+- Browse and enroll in 200+ expert courses across 8 tech categories
+- Get personalized AI tutoring from NeuralAI assistant (powered by Claude)
+- Track your learning progress with detailed analytics and streaks
+- Build an ATS-optimized resume in minutes
+- Browse and apply to 1,000+ job listings matched to your skills
+- Join a community forum to ask questions, share projects, and get code reviews
+- Earn verified certificates upon course completion
+- Manage a study calendar with custom events
+- Add courses to cart or wishlist for later
+
+Q: Is NeuralLearn free?
+A: Yes! NeuralLearn is free to join and use. You can sign up for free at
+neurallearn.io/register with no credit card required.
+
+Q: Who is NeuralLearn for?
+A: NeuralLearn is for:
+- Students and beginners looking to start a tech career
+- Working professionals who want to upskill or switch careers
+- Developers who want to add new technologies to their skillset
+- Anyone who wants to learn AI/ML, Web Development, Cloud, Data Science,
+  Design, Blockchain, Mobile development, or DevOps
+
+Q: Where is NeuralLearn available?
+A: NeuralLearn is a web platform accessible from any browser at
+https://neural-learn-ai-powered.vercel.app. It is fully mobile-responsive.
+
+Q: What makes NeuralLearn different from other platforms?
+A: NeuralLearn stands out because of:
+1. NeuralAI — a built-in AI tutor (powered by Claude) available 24/7
+2. Adaptive learning paths that evolve with your progress
+3. A live resume builder that generates ATS-optimized resumes from your
+   learning history
+4. An integrated job portal with 1,000+ vetted roles matched to your skills
+5. Real-time analytics with skill map, streak tracking, and gap analysis
+6. Community with senior engineer code reviews within hours
+7. Verified certificates trusted by 1,000+ hiring companies
+8. Beautiful dark-mode design with smooth animations
+9. 87% job placement rate among active learners
+10. Average package of ₹92K for placed learners
+
+Q: What are NeuralLearn's stats?
+A: NeuralLearn by the numbers:
+- 50,000+ active learners
+- 200+ expert courses
+- 87% job placement rate
+- ₹92K average salary package for placed learners
+
+
+================================================================================
+PART 2 — WHO BUILT NEURALLEARN?
+================================================================================
+
+Q: Who is the founder of NeuralLearn?
+A: NeuralLearn was founded by Arpit Aware, who is also the CEO and Lead
+Developer.
+
+Q: Who is the CEO of NeuralLearn?
+A: Arpit Aware is the CEO and founder of NeuralLearn.
+
+Q: How can I contact the founder?
+A: You can reach Arpit Aware at arpit@neurallearn.io
+
+Q: What is the founder's background?
+A: Arpit Aware is a Full-Stack MERN Developer based in India. He is a CS
+graduate and open-source advocate who built NeuralLearn as a full-stack project
+and grew it into a real platform used by thousands of learners.
+
+Q: Is NeuralLearn open source?
+A: Yes. NeuralLearn's codebase is MIT licensed — free to use, fork, and learn
+from. The entire project is available on GitHub.
+
+Q: When was NeuralLearn built?
+A: NeuralLearn was built over 4 weeks:
+- Week 1: Idea & Architecture — MVC structure, MongoDB schemas, React component hierarchy
+- Week 2: Backend Built — Node.js + Express API with JWT auth and MongoDB
+- Week 3: Frontend Complete — React dashboard with charts, dark mode, responsive layout
+- Week 4: Polish & Deploy — Landing pages, animations, currency support, and export features
+
+
+================================================================================
+PART 3 — SIGNING UP & LOGGING IN
+================================================================================
+
+Q: How do I sign up / create an account on NeuralLearn?
+A: To create an account:
+1. Visit https://neural-learn-ai-powered.vercel.app/register
+2. Enter your full name
+3. Enter your email address
+4. Create a password (minimum 6 characters)
+5. Click "Create Account"
+You'll be logged in automatically and taken to your dashboard.
+
+Q: How do I log in to NeuralLearn?
+A: To log in:
+1. Visit https://neural-learn-ai-powered.vercel.app/login
+2. Enter your email and password
+3. Click "Log In"
+You'll be redirected to your dashboard.
+
+Q: Is there a Google login / social login?
+A: Currently NeuralLearn uses email and password authentication. Google OAuth
+login is planned for a future update.
+
+Q: I forgot my password. How do I reset it?
+A: You can change your password from the Profile page once logged in. Go to
+Profile → Change Password. A full "forgot password" email flow is planned for
+a future update.
+
+Q: How do I update my profile?
+A: After logging in, go to Profile (from the sidebar or top bar). You can update
+your name, bio, and avatar URL. You can also change your password there.
+
+Q: What are the different user roles on NeuralLearn?
+A: There are three roles:
+1. Student — Can enroll in courses, track progress, use AI assistant, build
+   resume, apply to jobs, and participate in community.
+2. Instructor — Can create and manage courses in addition to all student features.
+3. Admin — Has full access including user management, course moderation,
+   and the admin analytics dashboard.
+
+Q: How do I become an instructor?
+A: Contact the NeuralLearn team at arpit@neurallearn.io to request an instructor
+account.
+
+
+================================================================================
+PART 4 — COURSES
+================================================================================
+
+Q: What courses are available on NeuralLearn?
+A: NeuralLearn offers 200+ courses across 8 categories:
+1. AI/ML — Machine learning, deep learning, neural networks, NLP, computer vision
+2. Web Development — Frontend, backend, full-stack, React, Node.js, HTML/CSS
+3. Data Science — Data analysis, visualization, pandas, statistics
+4. Design — UI/UX, graphic design, Figma, Adobe tools
+5. Cloud — AWS, Azure, GCP, Docker, Kubernetes
+6. Blockchain — Smart contracts, Solidity, Web3, DeFi
+7. Mobile — iOS, Android, React Native, Flutter
+8. DevOps — CI/CD, Linux, monitoring, pipelines
+
+Q: What are some example courses on NeuralLearn?
+A: Popular courses include:
+- Advanced Machine Learning (AI/ML | Advanced | ₹7,499 | 42 hours | 86 lessons | Rating 4.9 | 12,847 students)
+- Full-Stack Web Development (Web Dev | Intermediate | ₹6,599 | 68 hours | 142 lessons | Rating 4.8 | 23,156 students)
+And many more across all 8 categories.
+
+Q: How do I find courses?
+A: Go to the Courses section from the dashboard sidebar. You can:
+- Filter by category (AI/ML, Web Dev, Design, etc.)
+- Filter by level (Beginner, Intermediate, Advanced)
+- Search by keyword
+- Sort by rating, popularity, or price
+
+Q: How do I enroll in a course?
+A: Visit the course detail page and click "Enroll." Once enrolled, you can
+immediately start watching lessons and tracking your progress.
+
+Q: Are courses free or paid?
+A: Courses have individual prices listed on their detail pages. Prices are
+shown in INR (₹).
+
+Q: Can I preview a course before enrolling?
+A: Yes. Course pages show the full curriculum (sections and lessons), course
+description, instructor profile, learning outcomes, requirements, and student
+reviews. Some lessons are marked as free previews.
+
+Q: How are courses structured?
+A: Each course is divided into Sections, and each section contains Lessons.
+Lesson types include video, quiz, article, and assignment.
+
+Q: Do courses have certificates?
+A: Yes! Upon completing 100% of a course, you earn a verified certificate
+trusted by 1,000+ hiring companies.
+
+Q: What is the course difficulty level?
+A: Every course is tagged as Beginner, Intermediate, or Advanced so you can
+pick the right level for your experience.
+
+Q: Can I add courses to a wishlist?
+A: Yes. Click the wishlist icon on any course to save it for later. Access your
+saved courses at /wishlist.
+
+Q: Is there a shopping cart?
+A: Yes. You can add multiple courses to your cart and proceed to checkout.
+Access your cart from the top bar cart icon or at /cart.
+
+
+================================================================================
+PART 5 — LEARNING & PROGRESS
+================================================================================
+
+Q: How do I watch course videos?
+A: After enrolling, open the course from your dashboard or courses page and
+click "Start Learning." The Course Player shows the video on the left and the
+lesson list on the right. Click any lesson to watch it.
+
+Q: How is my progress tracked?
+A: NeuralLearn automatically tracks:
+- Which lessons you have completed
+- How much time you have spent on each course
+- Your overall completion percentage per course
+- Quiz scores
+- Your learning streak (consecutive days active)
+- Total hours learned
+
+Q: Where can I see my progress?
+A: Go to Progress from the dashboard sidebar. You will see progress bars,
+completion percentages, time spent, and certificates earned for every enrolled
+course.
+
+Q: What is a learning streak?
+A: A streak is the number of consecutive days you have been active on the
+platform. For example, a "14-day streak" means you have learned something every
+day for 14 days in a row. Streaks help you build a consistent learning habit.
+
+Q: What is the skill map?
+A: The skill map is a visual breakdown of your proficiency by category based on
+your course progress. For example, if you are 74% through your ML course and
+89% through your React course, your skill map would show ML: 74%, Web Dev: 89%.
+
+Q: Can I take notes while studying?
+A: Yes! In the Course Player, you can write notes tied to individual lessons.
+Your notes are saved and accessible whenever you revisit the lesson.
+
+Q: What happens when I complete a course?
+A: When you finish 100% of lessons in a course:
+1. You are marked as "completed" in your progress
+2. A certificate is issued
+3. The course moves to your "Completed" section on the dashboard
+
+Q: Does NeuralLearn have quizzes?
+A: Yes. Some lessons are of type "quiz" and your quiz scores are tracked and
+included in your progress analytics.
+
+Q: What does the dashboard show?
+A: Your dashboard shows:
+- A personalized greeting with time of day
+- 4 stat cards: Enrolled courses, Hours Learned, Completed courses, Average Progress
+- Weekly activity chart (last 7 days)
+- Your in-progress courses with progress bars
+- Your skill map (top 5 skill categories)
+- Recent community posts
+- Quick action buttons to continue learning
+
+
+================================================================================
+PART 6 — AI ASSISTANT (NeuralAI)
+================================================================================
+
+Q: What is NeuralAI?
+A: NeuralAI is NeuralLearn's built-in AI tutor — a smart chatbot available 24/7
+to help you learn better. It can explain complex topics, suggest your next
+steps, answer programming questions, debug code, and analyze your progress.
+
+Q: What AI powers the chatbot?
+A: NeuralAI is powered by llama, one of the most advanced AI
+models available.
+
+Q: How do I access the AI assistant?
+A: Click "AI Assistant" in the dashboard sidebar, or go to /ai-assistant. You
+must be logged in to use it.
+
+Q: What can I ask NeuralAI?
+A: You can ask NeuralAI anything related to your learning:
+- "Explain gradient descent simply"
+- "What should I learn next?"
+- "Give me a summary of my progress"
+- "What are the best Python resources?"
+- "How do neural networks work?"
+- "Debug my React code"
+- "Explain backpropagation"
+- "What is the difference between supervised and unsupervised learning?"
+- Any programming question, concept explanation, or study planning question
+
+Q: Does NeuralAI remember my progress?
+A: Yes. NeuralAI is aware of your enrolled courses and learning progress, so it
+can give personalized suggestions like "You're 3 lessons away from completing
+Neural Networks — focus on that next."
+
+Q: Is the AI assistant available 24/7?
+A: Yes, NeuralAI is available around the clock whenever you are logged in.
+
+Q: Does NeuralAI support code?
+A: Yes! NeuralAI can read and write code with syntax highlighting. You can
+paste your code and ask it to debug, explain, or improve it.
+
+
+================================================================================
+PART 7 — RESUME BUILDER
+================================================================================
+
+Q: Does NeuralLearn have a resume builder?
+A: Yes! NeuralLearn has a built-in resume builder that creates an
+ATS-optimized resume from your learning history in seconds.
+
+Q: How do I use the resume builder?
+A: Go to Resume from the dashboard sidebar (or /resume). Fill in:
+- Personal title and professional summary
+- Skills (pulled from your course history)
+- Work experience (company, role, period, description)
+- Education (school, degree, period)
+- Links (GitHub, LinkedIn, Portfolio)
+The preview updates live as you type.
+
+Q: What is an ATS-optimized resume?
+A: ATS stands for Applicant Tracking System — the software companies use to
+filter resumes automatically. NeuralLearn's resume builder structures your
+information so it passes ATS filters and gets seen by human recruiters.
+
+Q: Can I export my resume?
+A: Yes. You can export your completed resume as a PDF from the Resume page.
+
+Q: How well does the resume builder work?
+A: Users have reported getting hired at companies like Google, Stripe, Netflix,
+and Airbnb using resumes built on NeuralLearn. One user said the resume builder
+helped them land 3 callbacks in the first week.
+
+
+================================================================================
+PART 8 — JOB PORTAL
+================================================================================
+
+Q: Does NeuralLearn have job listings?
+A: Yes! NeuralLearn has a live job portal with 1,000+ vetted job roles matched
+to your exact skill level.
+
+Q: What types of jobs are available?
+A: NeuralLearn lists Full-time, Part-time, Contract, and Internship positions
+across tech companies. Example listings include roles at companies like OpenAI
+(AI Researcher, ₹42L+) and many others.
+
+Q: How do I find jobs?
+A: Go to Jobs from the dashboard sidebar. You can filter by job type, search by
+keyword, and browse by tags. Each listing shows the company, location, salary,
+requirements, and job type.
+
+Q: How do I apply for a job?
+A: Click on a job listing to view full details, then click "Apply." Some
+listings have a direct apply URL; others track your application directly on
+NeuralLearn.
+
+Q: Can I see which jobs I have applied to?
+A: Yes. Your applications are tracked within the platform.
+
+
+================================================================================
+PART 9 — COMMUNITY FORUM
+================================================================================
+
+Q: Does NeuralLearn have a community?
+A: Yes! NeuralLearn has a community forum where learners can ask questions,
+share projects, discuss topics, and get code reviews from senior engineers.
+
+Q: How do I access the community?
+A: Click Community in the dashboard sidebar, or go to /community.
+
+Q: What can I do in the community?
+A: You can:
+- Create posts with a title, content, tags, and optional image
+- Like and comment on other posts
+- Get code reviews from senior engineers
+- Browse by newest, popular, or trending posts
+- View full post threads with nested comments
+
+Q: How quickly do I get responses in the community?
+A: According to user testimonials, you can get code reviews from senior
+engineers within hours.
+
+
+================================================================================
+PART 10 — CALENDAR
+================================================================================
+
+Q: Does NeuralLearn have a study calendar?
+A: Yes! NeuralLearn has a built-in Calendar feature (/calendar) where you can:
+- View your learning schedule in a monthly calendar view
+- Create custom study events and reminders
+- Plan your study schedule day by day
+- Navigate between days, weeks, and months
+
+
+================================================================================
+PART 11 — PRICING PLANS
+================================================================================
+
+Q: How much does NeuralLearn cost?
+A: NeuralLearn has three plans:
+
+FREE — ₹0/forever (No credit card required)
+Includes: Unlimited expenses, 10 categories, dashboard with 3 chart types,
+monthly budget limits, budget alert thresholds, CSV export, full-text search
+and filters, 8 currency support including INR, dark and light mode.
+
+PRO — ₹149/month (Most Popular)
+Everything in Free, plus: PDF monthly and yearly reports, bill reminders via
+email, recurring expense detection, savings goals tracker, financial health
+score, Excel export, unlimited budget categories, priority support.
+Yearly billing saves 33%: ₹100/month when billed yearly.
+
+FAMILY — ₹299/month (Best Value)
+Everything in Pro, plus: up to 5 family members, shared family budget pool,
+split expenses between members, per-member admin controls, family financial
+health score, combined spending reports, member expense approval.
+Yearly billing saves 33%.
+
+Q: Is there a free plan?
+A: Yes! The Free plan is completely free forever with no credit card required.
+
+Q: Can I cancel anytime?
+A: Yes. No contracts, no cancellation fees. Cancel from your profile settings
+and you keep access until the end of your billing period.
+
+Q: Does NeuralLearn offer a discount for yearly billing?
+A: Yes. Yearly billing saves 33% on Pro and Family plans.
+
+Q: What payment methods does NeuralLearn accept?
+A: NeuralLearn plans to support UPI, credit/debit cards, and netbanking via
+Razorpay — the most convenient options for Indian users.
+
+Q: Is the Pro plan really worth it?
+A: The Pro plan adds features like PDF financial reports (great for CA filing),
+bill reminders so you never miss an EMI, recurring expense detection, savings
+goals, and a financial health score. At ₹149/month, users say it pays for
+itself by catching missed payments.
+
+
+================================================================================
+PART 12 — FEATURES OVERVIEW
+================================================================================
+
+Q: What are all the features of NeuralLearn?
+A: NeuralLearn's full feature list:
+
+LEARNING FEATURES:
+✅ 200+ expert courses across 8 tech categories
+✅ Video lessons, quizzes, articles, and assignments
+✅ Course sections with structured curriculum
+✅ Lesson completion tracking
+✅ Time-spent tracking per course
+✅ In-lesson note-taking
+✅ Verified completion certificates
+✅ Course reviews and ratings
+✅ Featured and recommended courses
+✅ Wishlist and shopping cart
+
+AI FEATURES:
+✅ NeuralAI — built-in AI tutor powered by Claude (24/7)
+✅ Personalized next-step suggestions
+✅ Code explanation and debugging
+✅ Quick prompts for common questions
+✅ Adaptive learning paths that evolve with you
+
+ANALYTICS & PROGRESS:
+✅ Dashboard with 4 stat cards
+✅ Weekly activity chart (7-day view)
+✅ Skill map by category
+✅ Learning streak tracking
+✅ Total hours learned
+✅ Average progress across courses
+✅ Per-course progress bars and completion status
+
+CAREER FEATURES:
+✅ Resume builder with live preview
+✅ ATS-optimized resume generation
+✅ Resume export as PDF
+✅ Skills, experience, education, and links sections
+✅ Job portal with 1,000+ listings
+✅ Job filtering by type, keyword, and tags
+✅ One-click job application
+✅ Application tracking
+
+COMMUNITY:
+✅ Community forum with posts and comments
+✅ Like system on posts and comments
+✅ Code reviews from senior engineers
+✅ Post categories and tags
+✅ Trending and popular posts
+✅ Pinned posts (admin)
+
+TOOLS:
+✅ Study calendar with custom events
+✅ Expense tracking with categories
+✅ Budget management with alerts
+✅ CSV and Excel data export
+✅ Notifications system
+✅ Dark and light mode
+
+ACCOUNT:
+✅ Role-based access (student / instructor / admin)
+✅ Profile customization (name, bio, avatar)
+✅ Password management
+✅ Multi-currency support (INR, USD, EUR, GBP, JPY, and more)
+
+Q: What are the special features of NeuralLearn?
+A: The most unique and special features are:
+1. NeuralAI — An integrated AI tutor available 24/7, not just a third-party
+   chatbot but deeply integrated with your progress
+2. AI Resume Builder — Generates a complete ATS-optimized resume from your
+   learning history with one click
+3. Adaptive Learning Paths — The curriculum evolves based on your progress
+4. Skill Map — Visual real-time breakdown of exactly where you stand in each
+   tech category
+5. Integrated Job Portal — Job listings are matched to your actual skill level
+6. Community with Senior Reviews — Code reviews from engineers at top companies
+7. Verified Certificates — Trusted by 1,000+ hiring companies
+8. All-in-One Platform — No need for separate tools for learning, resume, jobs,
+   and community
+
+
+================================================================================
+PART 13 — ACCOUNT & SECURITY
+================================================================================
+
+Q: Is my data secure on NeuralLearn?
+A: Yes. NeuralLearn uses:
+- bcrypt password hashing (industry-standard, 12 rounds)
+- JWT (JSON Web Tokens) for secure authentication
+- Input validation on all forms to prevent injection attacks
+- CORS protection allowing only trusted origins
+- Rate limiting to prevent brute-force attacks
+
+Q: Does NeuralLearn sell my data?
+A: No. NeuralLearn does not sell user data to third parties.
+
+Q: Can I delete my account?
+A: Contact arpit@neurallearn.io to request account deletion.
+
+Q: How do I change my email?
+A: Currently email changes require contacting support at arpit@neurallearn.io.
+
+Q: Can I change my password?
+A: Yes. Go to Profile → Change Password after logging in.
+
+Q: What currencies does NeuralLearn support?
+A: NeuralLearn supports 8 currencies including INR (₹), USD ($), EUR (€),
+GBP (£), JPY (¥), and more. You can select your preferred currency in settings.
+
+
+================================================================================
+PART 14 — TECHNICAL & GENERAL FAQ
+================================================================================
+
+Q: What browsers does NeuralLearn support?
+A: NeuralLearn works in all modern browsers — Chrome, Firefox, Safari, and Edge.
+
+Q: Does NeuralLearn work on mobile?
+A: Yes. NeuralLearn is fully mobile-responsive and works great on smartphones
+and tablets.
+
+Q: Is there a NeuralLearn mobile app?
+A: Not yet. A mobile app is planned for a future release. The web app is
+fully functional on mobile browsers.
+
+Q: What is the tech stack behind NeuralLearn?
+A: NeuralLearn is built with the MERN stack:
+- MongoDB (database)
+- Express.js (backend API)
+- React 18 (frontend)
+- Node.js (server)
+Plus: Tailwind CSS, Framer Motion, JWT authentication, Zustand, React Query,
+Recharts, Vite, and Axios.
+
+Q: Where is NeuralLearn hosted?
+A: The frontend is hosted on Vercel. The backend API is hosted on Render.
+
+Q: Is there a dark mode?
+A: Yes! NeuralLearn has a beautiful dark mode with glassmorphism design and
+smooth animations. You can also switch to light mode from your settings.
+
+Q: How do I report a bug or give feedback?
+A: Contact arpit@neurallearn.io with bug reports or feedback.
+
+Q: Does NeuralLearn have notifications?
+A: Yes. You can see your notifications from the top bar bell icon or from your
+Profile page. Admins can send notifications; you can mark them as read.
+
+Q: What is the admin dashboard?
+A: The Admin Dashboard is a special page accessible only to admin users. It shows:
+- Total users, courses, posts, and revenue
+- Revenue chart by month
+- Enrollments by month
+- Top 5 courses by student count
+- Recent user registrations
+- Course and user management tools
+
+
+================================================================================
+PART 15 — USER TESTIMONIALS
+================================================================================
+
+"NeuralLearn transformed my career. The AI assistant explains things better than
+most human tutors. Hired at Google in 6 months." — Leila Ahmadi, ML Engineer @ Google
+
+"Quality rivals top bootcamps at a fraction of the cost. The resume builder alone
+helped me land 3 callbacks in the first week." — Raj Patel, Senior Dev @ Stripe
+
+"The personalized learning paths are mind-blowing. It knew exactly what I needed
+before I did. Best investment in my career." — Mei Zhou, Data Scientist @ Netflix
+
+"The community here is world-class. Got code reviews from senior engineers within
+hours. This platform is genuinely different." — Carlos M., Frontend Dev @ Vercel
+
+"Passed AWS Solutions Architect on first try. The practice labs are exceptional
+and the AI tutor caught every gap in my knowledge." — Yuki Tanaka, Cloud Architect @ AWS
+
+"From zero coding to Airbnb in 8 months. NeuralLearn gave me both the skills
+and the confidence to make that leap." — Priya Sharma, Data Engineer @ Airbnb
+
+
+================================================================================
+PART 16 — QUICK LINKS & NAVIGATION
+================================================================================
+
+Homepage:      https://neural-learn-ai-powered.vercel.app
+Register:      https://neural-learn-ai-powered.vercel.app/register
+Login:         https://neural-learn-ai-powered.vercel.app/login
+Dashboard:     https://neural-learn-ai-powered.vercel.app/dashboard  (login required)
+Courses:       https://neural-learn-ai-powered.vercel.app/courses     (login required)
+AI Assistant:  https://neural-learn-ai-powered.vercel.app/ai-assistant (login required)
+Resume:        https://neural-learn-ai-powered.vercel.app/resume      (login required)
+Jobs:          https://neural-learn-ai-powered.vercel.app/jobs        (login required)
+Community:     https://neural-learn-ai-powered.vercel.app/community   (login required)
+Progress:      https://neural-learn-ai-powered.vercel.app/progress    (login required)
+Calendar:      https://neural-learn-ai-powered.vercel.app/calendar    (login required)
+Cart:          https://neural-learn-ai-powered.vercel.app/cart        (login required)
+Wishlist:      https://neural-learn-ai-powered.vercel.app/wishlist    (login required)
+Profile:       https://neural-learn-ai-powered.vercel.app/profile     (login required)
+Contact:       arpit@neurallearn.io
+GitHub:        Open source — MIT licensed
+
+
+================================================================================
+PART 17 — COMMON ERRORS & TROUBLESHOOTING
+================================================================================
+
+Q: I can't log in. What should I do?
+A: Check that you are entering the correct email and password. Passwords are
+case-sensitive. If you have forgotten your password, go to Profile after logging
+in or contact arpit@neurallearn.io for support.
+
+Q: The page is not loading. What should I try?
+A: Try refreshing the page. Clear your browser cache. Make sure you have a
+stable internet connection. Try a different browser.
+
+Q: I enrolled in a course but can't find it.
+A: Go to your Dashboard. Your enrolled courses appear in the "In Progress"
+section. You can also go to Progress (/progress) to see all enrolled courses.
+
+Q: My progress isn't saving.
+A: Make sure you are logged in. Progress is only saved when authenticated.
+If the issue persists, contact arpit@neurallearn.io.
+
+Q: I'm not receiving any notifications.
+A: Check your Notifications in the top bar. Notifications are in-app only
+(email notifications are a Pro feature coming soon).
+
+
+================================================================================
+END OF NEURALLEARN KNOWLEDGE BASE
+================================================================================

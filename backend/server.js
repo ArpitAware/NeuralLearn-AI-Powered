@@ -23,6 +23,7 @@ const app = express();
 
 const allowedOrigins = [
   'http://localhost:5173',
+  'http://localhost:5174',
   'https://neural-learn-ai-powered.vercel.app',
   'https://neural-learn-ai-powered-acbd4fxfi-arpitawares-projects.vercel.app'
 ];

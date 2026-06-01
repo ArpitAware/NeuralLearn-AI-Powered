@@ -29,6 +29,7 @@
   html { scroll-behavior: smooth; }
 
   body {
+  cursor: auto;
     background: var(--bg);
     color: var(--text);
     font-family: 'DM Sans', sans-serif;
