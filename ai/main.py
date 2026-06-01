@@ -9,7 +9,11 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://neural-learn-ai-powered.vercel.app"],
+    allow_origins=[
+        "http://localhost:5173",       # local frontend
+        "http://localhost:3000",       # alternate local port
+        "https://neural-learn-ai-powered.vercel.app/",  # live frontend
+    ],
     allow_methods=["*"],
     allow_headers=["*"],
 )

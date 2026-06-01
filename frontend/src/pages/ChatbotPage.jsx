@@ -4,7 +4,8 @@ import { Send, Sparkles, RotateCcw, Copy, ThumbsUp, ThumbsDown } from 'lucide-re
 import toast from 'react-hot-toast';
 import useAuthStore from '../store/authStore';
 
-const API = 'http://localhost:8000';
+const API = import.meta.env.VITE_AI_URL || "http://localhost:8000"; 
+// AI URL
 
 const INITIAL = [
   { role: 'ai', text: "Hi! I'm **NeuralAI**, your intelligent learning assistant. I can help you with:\n\n• Understanding course concepts\n• Suggesting your next learning steps\n• Answering programming questions\n• Analyzing your progress\n\nWhat would you like to explore today?" }
